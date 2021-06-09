@@ -1,0 +1,10 @@
+[Unit]
+Description=Bursat 1B telemetri verisi
+Requires=network.target
+
+[Service]
+Type=simple
+ExecStart=python3 /home/pi/telemetri.py
+
+[Install]
+WantedBy=multi-user.target
