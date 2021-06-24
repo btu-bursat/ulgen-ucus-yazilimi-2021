@@ -1,6 +1,6 @@
-# BTÜ Bursat 1B Takımı 2021 Uçuş Yazılımı
+# BTÜ Ülgen Takımı 2021 Uçuş Yazılımı
 
-BTÜ Bursat 1B takımının telemetri ve motor kontrolünü içeren uçuş yazılımı.
+BTÜ Ülgen takımının telemetri ve motor kontrolünü içeren uçuş yazılımı.
 
 ## Genel Bakış
 
