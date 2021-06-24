@@ -1,10 +1,10 @@
 [Unit]
-Description=Ulgen telemetri verisi
+Description=mpu9255 telemetri verileri
 Requires=network.target
 
 [Service]
 Type=simple
-ExecStart=python3 /home/pi/telemetri.py
+ExecStart=python3 /home/pi/mpu9255.py
 
 [Install]
 WantedBy=multi-user.target

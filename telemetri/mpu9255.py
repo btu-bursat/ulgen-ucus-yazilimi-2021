@@ -5,8 +5,8 @@ import adafruit_bmp280
 
 mpu9250 = MPU9250()
 i2c = board.I2C()
-bmp280 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
-bmp280.sea_level_pressure = 1013.25
+bmp180 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
+bmp180.sea_level_pressure = 1013.25
 
 while True:
     with open("/home/pi/telemetri_verileri/ivme_x", "w") as f:
@@ -22,8 +22,8 @@ while True:
     with open("/home/pi/telemetri_verileri/yaw", "w") as f:
         f.write("%f" % mpu9250.readGyro()['z'])
     with open("/home/pi/telemetri_verileri/sicaklik", "w") as f:
-        f.write("%f" % bmp280.temperature)
+        f.write("%f" % bmp180.temperature)
     with open("/home/pi/telemetri_verileri/basinc", "w") as f:
-        f.write("%f" % bmp280.pressure)
+        f.write("%f" % bmp180.pressure)
     with open("/home/pi/telemetri_verileri/yukseklik", "w") as f:
-        f.write("%f" % bmp280.altitude)
+        f.write("%f" % bmp180.altitude)

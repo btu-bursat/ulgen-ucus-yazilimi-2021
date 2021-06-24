@@ -42,5 +42,8 @@ Telemetri verileri wi-fi ile aktarılacaktir.
  |- yaw
  |- donus_sayisi
  |- video_aktarim_bilgisi
+ |- ivme_x
+ |- ivme_y
+ |- ivme_z
  |- telemetri.txt
 ```

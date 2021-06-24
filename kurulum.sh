@@ -1,5 +1,5 @@
 #!/bin/bash
-# BTU Ulgen 2021
+# BTU Ulgen, 2021
 
 # Renklendirme icin degiskenler
 BOLD_RED="\033[1;31m"
@@ -19,6 +19,12 @@ then
 	echo -e "Sunu deneyin: sudo $0"
 	exit
 fi
+
+# Sistem guncelleniyor
+echo -e "${BOLD_BLUE}Sistem guncelleniyor ve gerekli yazilimlar yukleniyor${NC}"
+#apt update
+#apt install python3-pip
+#pip3 install
 
 # Telemetri verilerini toplamak icin yeni dizin olusturulur
 echo -e "${BOLD_BLUE}Telemetri verileri icin yeni dizin olusturuluyor${NC}"
@@ -48,14 +54,17 @@ echo -n "" > /home/pi/telemetri_verileri/ivme_z
 # Butun kodlar /home/pi/ dizine tasinir
 echo -e "${BOLD_BLUE}Butun kodlar /home/pi/ dizinine tasiniyor${NC}"
 cp telemetri/telemetri.py /home/pi/telemetri.py
+cp telemetri/mpu9255.py /home/pi/mpu9255.py
 
 # Servislerin yuklenmesi
 echo -e "${BOLD_BLUE}Servisler yukleniyor${NC}"
-cp servisler/telemetri.service /etc/systemd/system/telemetri.service
+cp servisler/*.service /etc/systemd/system/
 
 # Servislerin etkinlestirilmesi
 systemctl daemon-reload
 systemctl enable telemetri
 systemctl start telemetri
+systemctl enable mpu9255
+systemctl start mpu9255
 
 echo -e "${BOLD_GREEN}Yukleme tamamlandi!${NC}"
