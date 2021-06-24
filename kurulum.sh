@@ -1,5 +1,5 @@
 #!/bin/bash
-# BTU Bursat 1B 2021
+# BTU Ulgen 2021
 
 # Renklendirme icin degiskenler
 BOLD_RED="\033[1;31m"
@@ -41,6 +41,9 @@ echo -n "" > /home/pi/telemetri_verileri/roll
 echo -n "" > /home/pi/telemetri_verileri/yaw
 echo -n "" > /home/pi/telemetri_verileri/donus_sayisi
 echo -n "Hayir" > /home/pi/telemetri_verileri/video_aktarim_bilgisi
+echo -n "" > /home/pi/telemetri_verileri/ivme_x
+echo -n "" > /home/pi/telemetri_verileri/ivme_y
+echo -n "" > /home/pi/telemetri_verileri/ivme_z
 
 # Butun kodlar /home/pi/ dizine tasinir
 echo -e "${BOLD_BLUE}Butun kodlar /home/pi/ dizinine tasiniyor${NC}"

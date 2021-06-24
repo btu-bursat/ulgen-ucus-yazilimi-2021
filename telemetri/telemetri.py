@@ -75,5 +75,6 @@ while True:
 	# selam cakin
 	# Eger calismasi 1 saniyeden uzun surerse bekleme yok
 	exec_time = time.time() - start_time
+	print(exec_time)
 	if exec_time < 1:
 		time.sleep(1 - exec_time)
