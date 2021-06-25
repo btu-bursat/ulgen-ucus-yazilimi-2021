@@ -24,7 +24,7 @@ fi
 echo -e "${BOLD_BLUE}Sistem guncelleniyor ve gerekli yazilimlar yukleniyor${NC}"
 #apt update
 #apt install python3-pip
-#pip3 install
+#pip3 install FaBo9Axis-MPU9250-python3
 
 # Telemetri verilerini toplamak icin yeni dizin olusturulur
 echo -e "${BOLD_BLUE}Telemetri verileri icin yeni dizin olusturuluyor${NC}"
