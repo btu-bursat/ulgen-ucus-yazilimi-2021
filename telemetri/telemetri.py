@@ -76,7 +76,7 @@ while True:
 
 	zaman = datetime.datetime.now()
 	gun_ay_yil = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
-	saat_dakika_saniye = str(zaman.hour) + "/" + str(zaman.minute) + "/" + str(zaman.second)
+	saat_dakika_saniye = str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
 
 	telemetri  = takim_no + "," + paket_numarasi + ","
 	telemetri += gun_ay_yil + "," + saat_dakika_saniye + "," + basinc + ","
