@@ -23,7 +23,7 @@ fi
 # Sistem guncelleniyor
 echo -e "${BOLD_BLUE}Sistem guncelleniyor ve gerekli yazilimlar yukleniyor${NC}"
 #apt update
-#apt install python3-pip
+#apt install -y python3-pip
 #pip3 install
 
 # Telemetri verilerini toplamak icin yeni dizin olusturulur
@@ -50,6 +50,7 @@ echo -n "Hayir" > /home/pi/telemetri_verileri/video_aktarim_bilgisi
 echo -n "" > /home/pi/telemetri_verileri/ivme_x
 echo -n "" > /home/pi/telemetri_verileri/ivme_y
 echo -n "" > /home/pi/telemetri_verileri/ivme_z
+echo -n "" > /home/pi/telemetri_verileri/telemetri.txt
 
 # Butun kodlar /home/pi/ dizine tasinir
 echo -e "${BOLD_BLUE}Butun kodlar /home/pi/ dizinine tasiniyor${NC}"
@@ -62,9 +63,14 @@ cp servisler/*.service /etc/systemd/system/
 
 # Servislerin etkinlestirilmesi
 systemctl daemon-reload
+
 systemctl enable telemetri
 systemctl start telemetri
+
 systemctl enable mpu9255
 systemctl start mpu9255
+
+systemctl enable hiz
+systemctl start hiz
 
 echo -e "${BOLD_GREEN}Yukleme tamamlandi!${NC}"
