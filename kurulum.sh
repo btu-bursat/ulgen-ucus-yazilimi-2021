@@ -54,8 +54,7 @@ echo -n "" > /home/pi/telemetri_verileri/telemetri.txt
 
 # Butun kodlar /home/pi/ dizine tasinir
 echo -e "${BOLD_BLUE}Butun kodlar /home/pi/ dizinine tasiniyor${NC}"
-cp telemetri/telemetri.py /home/pi/telemetri.py
-cp telemetri/mpu9255.py /home/pi/mpu9255.py
+cp telemetri/* /home/pi/
 
 # Servislerin yuklenmesi
 echo -e "${BOLD_BLUE}Servisler yukleniyor${NC}"
