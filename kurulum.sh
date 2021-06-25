@@ -50,6 +50,7 @@ echo -n "Hayir" > /home/pi/telemetri_verileri/video_aktarim_bilgisi
 echo -n "" > /home/pi/telemetri_verileri/ivme_x
 echo -n "" > /home/pi/telemetri_verileri/ivme_y
 echo -n "" > /home/pi/telemetri_verileri/ivme_z
+echo -n "" > /home/pi/telemetri_verileri/sifir_noktasi
 echo -n "" > /home/pi/telemetri_verileri/telemetri.txt
 
 # Butun kodlar /home/pi/ dizine tasinir

@@ -4,10 +4,15 @@ from time import sleep
 
 onceki_yukseklik = 0.0
 olcekleme_zamani = 1
+sifir_noktasi = 0
 
 while True:
 	with open("/home/pi/telemetri_verileri/yukseklik", "r") as f:
 		onceki_yukseklik = f.read()
+
+while True:
+	with open("/home/pi/telemetri_verileri/sifir_noktasi", "r") as f:
+		sifir_noktasi = f.read()
 
 while True:
 	yukseklik = 0.0
