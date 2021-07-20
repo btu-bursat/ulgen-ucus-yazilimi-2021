@@ -17,6 +17,9 @@ def baslat():
 	global sifir_noktasi
 	global komut
 	global telemetri_paketi
+	global max_gerilim, min_gerilim
+	global gerilim_araligi
+	global pil_yuzde
 
 	takim_no = 12345
 	paket_numarasi = 0
@@ -34,3 +37,7 @@ def baslat():
 	sifir_noktasi = 0
 	komut = 0
 	telemetri_paketi = ""
+	max_gerilim, min_gerilim = 4.2, 3.6
+	gerilim_araligi = max_gerilim - min_gerilim
+	pil_gerilim = max_gerilim
+	pil_yuzde = 100

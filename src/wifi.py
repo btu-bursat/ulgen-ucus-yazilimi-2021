@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sensor_verileri as sv
+import telemetri_verileri as tv
 import socket
 from time import sleep
 
@@ -13,9 +13,10 @@ def calistir():
 	conn, addr = uydu_socket.accept()
 
 	while True:
-		sv.komut = conn.recv(1024).decode()
-		if not sv.komut:
-			sv.komut = "0"
-		# buraya video komutu oldugunu anlayacak ve videoyu alacak kod yazilacak
-		# diger komutlari baska bir modul isleyecek
-		conn.send(sv.telemetri_paketi.encode())
+		tv.komut = conn.recv(1024).decode()
+		if not tv.komut:
+			tv.komut = "0"
+		if tv.komut == "5":
+			# video aktarimi burada olacak
+			pass
+		conn.send(tv.telemetri_paketi.encode())

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-import sensor_verileri as sv
+import telemetri_verileri as tv
 
 def calistir():
-	pass
+	# pil gerilimi burada olculecek
+	tv.pil_gerilim -= tv.min_gerilim
+	tv.pil_yuzde = (tv.pil_gerilim / tv.gerilim_araligi) * 100
