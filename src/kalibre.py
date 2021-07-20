@@ -14,4 +14,5 @@ def calistir():
 			tv.sifir_noktasi = tv.basinc
 			tv.paket_numarasi = 0
 			tv.uydu_statusu = 1
+			tv.komut = "0"
 		sleep(1)
