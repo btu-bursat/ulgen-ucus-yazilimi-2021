@@ -8,15 +8,10 @@ def calistir():
 	while True:
 		baslangic = time.time()
 
-		zaman = datetime.now()
-		gun_ay_yil = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
-		saat_dakika_saniye = str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
-
 		tv.telemetri_paketi  = ""
 		tv.telemetri_paketi += tv.takim_no
 		tv.telemetri_paketi += tv.paket_numarasi
-		tv.telemetri_paketi += tv.gun_ay_yil
-		tv.telemetri_paketi += tv.saat_dakika_saniye
+		tv.telemetri_paketi += zaman_damgasi()
 		tv.telemetri_paketi += tv.basinc
 		tv.telemetri_paketi += tv.yukseklik
 		tv.telemetri_paketi += tv.inis_hizi
@@ -36,10 +31,17 @@ def calistir():
 			f.write(telemetri_paketi)
 			break
 
-		with open("/home/pi/son_telemetri", "a") as f:
+		with open("/home/pi/son_telemetri", "w") as f:
 			f.write(telemetri_paketi)
 			break
 
 		sure = time.time() - baslangic
 		if sure < 1:
 			time.sleep(1 - sure)
+
+# burasi gps sensorundeki saat verisi ile degisebilir
+def zaman_damgasi():
+	zaman = datetime.now()
+	gun_ay_yil = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
+	saat_dakika_saniye = str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
+	return gun_ay_yil + "," + saat_dakika_saniye

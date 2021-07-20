@@ -21,6 +21,10 @@ def baslat():
 	global gerilim_araligi
 	global pil_yuzde
 
+	with open("/home/pi/son_telemetri", "r") as f:
+			son_telemetri = f.write()
+	# son telemetri verisi parcalara ayrilip asagidaki degiskenlere atanacak
+	
 	takim_no = 12345
 	paket_numarasi = 0
 	basinc = 0

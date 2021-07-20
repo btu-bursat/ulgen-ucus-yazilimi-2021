@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from threading import Thread
-from datetime import datetime
 import telemetri_verileri as tv
 import mpu9250
 import bmp180
@@ -19,19 +18,11 @@ def thrd_fun(thread_fonksiyonu):
 			try:
 				thread_fonksiyonu()
 			except BaseException as e:
-				zaman = datetime.now()
-				zaman_damgasi  = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
-				zaman_damgasi += ", "
-				zaman_damgasi += str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
 				with open("/home/pi/log.txt", "a") as f:
-					f.write("{}: {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.\n".format(zaman_damgasi, thread_fonksiyonu.__name__, e))
+					f.write("{}: {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.\n".format(tv.zaman_damgasi(), thread_fonksiyonu.__name__, e))
 			else:
-				zaman = datetime.now()
-				zaman_damgasi  = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
-				zaman_damgasi += ", "
-				zaman_damgasi += str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
 				with open("/home/pi/log.txt", "a") as f:
-					f.write("{}: {} fonksiyonu basari ile sonlandi.\n".format(zaman_damgasi, thread_fonksiyonu.__name__))
+					f.write("{}: {} fonksiyonu basari ile sonlandi.\n".format(tv.zaman_damgasi(), thread_fonksiyonu.__name__))
 				break
 	return hata_denetleyici
 
@@ -57,10 +48,6 @@ def main():
 	thrd_kalibre.start()
 	thrd_guc_yonetimi.start()
 	thrd_otonom_ucus.start()
-
-	while True:
-		if not thrd_mpu9250.is_alive():
-			thrd_mpu9250.start()
 
 if __name__ == "__main__":
 	main()
