@@ -14,3 +14,7 @@ git clone https://github.com/Bursat/bursat-1b-ucus-yazilimi-2021.git
 cd bursat-1b-ucus-yazilimi-2021
 sudo ./kurulum.sh
 ```
+
+## Lisans
+
+Lisans bilgileri için [LICENSE](LICENSE) dosyasını inceleyin.
