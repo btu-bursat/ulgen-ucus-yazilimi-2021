@@ -13,4 +13,4 @@ def calistir():
 		sv.sicaklik = bmp180.temperature
 		sv.basinc = bmp180.pressure
 		sv.yukseklik = bmp180.altitude
-		sleep(0.5)
+		sleep(2)

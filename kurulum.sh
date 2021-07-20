@@ -16,10 +16,10 @@ fi
 cp src/* /home/pi/
 
 # Servislerin yuklenmesi
-cp servisler/*.service /etc/systemd/system/
+cp ulgen.service /etc/systemd/system/
 
 # Servislerin etkinlestirilmesi
 systemctl daemon-reload
 
-systemctl enable ucus_yazilimi
-systemctl start ucus_yazilimi
+systemctl enable ulgen
+systemctl start ulgen

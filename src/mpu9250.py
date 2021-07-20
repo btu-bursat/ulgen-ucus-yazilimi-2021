@@ -4,9 +4,8 @@ import sensor_verileri as sv
 from FaBo9Axis_MPU9250 import MPU9250
 from time import sleep
 
-mpu9250 = MPU9250()
-
 def calistir():
+	mpu9250 = MPU9250()
 	while True:
 		sv.ivme_x = mpu9250.readAccel()['x']
 		sv.ivme_y = mpu9250.readAccel()['y']

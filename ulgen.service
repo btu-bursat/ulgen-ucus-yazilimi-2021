@@ -1,5 +1,5 @@
 [Unit]
-Description="BTU Ulgen Ucus Yazilimi"
+Description="BTÜ Ülgen Uçuş Yazılımı, 2021"
 Requires=network.target
 
 [Service]
