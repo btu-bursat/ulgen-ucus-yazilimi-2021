@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sensor_verileri as sv
 import socket
 from time import sleep
