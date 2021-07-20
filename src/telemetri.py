@@ -29,11 +29,9 @@ def calistir():
 
 		with open("/home/pi/telemetri.txt", "a") as f:
 			f.write(telemetri_paketi)
-			break
 
 		with open("/home/pi/son_telemetri", "w") as f:
 			f.write(telemetri_paketi)
-			break
 
 		sure = time.time() - baslangic
 		if sure < 1:
