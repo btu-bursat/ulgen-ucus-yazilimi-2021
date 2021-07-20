@@ -1,10 +1,10 @@
 [Unit]
-Description=Mu inis hizi
+Description="BTU Ulgen Ucus Yazilimi"
 Requires=network.target
 
 [Service]
 Type=simple
-ExecStart=python3 /home/pi/hiz.py
+ExecStart=python3 /home/pi/main.py
 
 [Install]
 WantedBy=multi-user.target

@@ -21,29 +21,3 @@ sudo ./kurulum.sh
 
 Telemetri verileri ayrı ayrı `/home/pi/telemetri_verileri` adlı dizinde toplanacaktır. Daha sonra bu veriler her saniye toplanıp, `telemetri.txt` adlı dosyada birleştirilecektir.
 Telemetri verileri wi-fi ile aktarılacaktir.
-
-### `telemetri_verileri` dizininin yapısı:
-
-```
-/home/pi/telemetri_verileri/
- |- takim_no
- |- paket_numarasi
- |- basinc
- |- yukseklik
- |- inis_hizi
- |- sicaklik
- |- pil_gerilimi
- |- gps_latitude
- |- gps_longitude
- |- gps_altitude
- |- uydu_statusu
- |- pitch
- |- roll
- |- yaw
- |- donus_sayisi
- |- video_aktarim_bilgisi
- |- ivme_x
- |- ivme_y
- |- ivme_z
- |- telemetri.txt
-```
