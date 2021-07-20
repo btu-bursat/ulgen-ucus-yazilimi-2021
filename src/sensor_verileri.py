@@ -15,6 +15,8 @@ def baslat():
 	global video_aktarim_bilgisi
 	global ivme_x, ivme_y, ivme_z
 	global sifir_noktasi
+	global komut
+	global telemetri_paketi
 
 	takim_no = 12345
 	paket_numarasi = 0
@@ -30,3 +32,5 @@ def baslat():
 	video_aktarim_bilgisi = "Hayir"
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
 	sifir_noktasi = 0
+	komut = 0
+	telemetri_paketi = ""
