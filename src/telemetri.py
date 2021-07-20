@@ -2,12 +2,13 @@
 
 import telemetri_verileri as tv
 import time
+from datetime import datetime
 
 def calistir():
 	while True:
 		baslangic = time.time()
 
-		zaman = datetime.datetime.now()
+		zaman = datetime.now()
 		gun_ay_yil = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
 		saat_dakika_saniye = str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
 
