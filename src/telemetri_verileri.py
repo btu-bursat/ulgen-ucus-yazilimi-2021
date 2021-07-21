@@ -22,26 +22,24 @@ def baslat():
 	global pil_yuzde
 
 	with open("/home/pi/son_telemetri", "r") as f:
-			son_telemetri = f.write()
-	# son telemetri verisi parcalara ayrilip asagidaki degiskenlere atanacak
-	
-	takim_no = 12345
-	paket_numarasi = 0
-	basinc = 0
-	yukseklik = 0
-	inis_hizi = 0
-	sicaklik = 0
-	pil_gerilimi = 0
-	gps_latitude, gps_longitude, gps_altitude = 0, 0, 0
-	uydu_statusu = 1
-	pitch, roll, yaw = 0, 0, 0
-	donus_sayisi = 0
-	video_aktarim_bilgisi = "Hayir"
+		son_telemetri = f.read().split(",")
+
+	takim_no = son_telemetri[0]
+	paket_numarasi = son_telemetri[1]
+	basinc = son_telemetri[4]
+	yukseklik = son_telemetri[5]
+	inis_hizi = son_telemetri[6]
+	sicaklik = son_telemetri[7]
+	pil_gerilimi = son_telemetri[8]
+	gps_latitude, gps_longitude, gps_altitude = son_telemetri[9], son_telemetri[10], son_telemetri[11]
+	uydu_statusu = son_telemetri[12]
+	pitch, roll, yaw = son_telemetri[13], son_telemetri[14], son_telemetri[15]
+	donus_sayisi = son_telemetri[16]
+	video_aktarim_bilgisi = son_telemetri[17]
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
-	sifir_noktasi = 0
-	komut = 0
+	sifir_noktasi = 1013.25
+	komut = "0"
 	telemetri_paketi = ""
 	max_gerilim, min_gerilim = 4.2, 3.6
 	gerilim_araligi = max_gerilim - min_gerilim
-	pil_gerilim = max_gerilim
 	pil_yuzde = 100

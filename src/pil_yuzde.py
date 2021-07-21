@@ -4,5 +4,5 @@ import telemetri_verileri as tv
 
 def calistir():
 	# pil gerilimi burada olculecek
-	tv.pil_gerilim -= tv.min_gerilim
-	tv.pil_yuzde = (tv.pil_gerilim / tv.gerilim_araligi) * 100
+	tv.pil_gerilimi -= tv.min_gerilim
+	tv.pil_yuzde = (tv.pil_gerilimi / tv.gerilim_araligi) * 100
