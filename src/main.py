@@ -4,12 +4,14 @@ from threading import Thread
 import telemetri_verileri as tv
 import mpu9250
 import bmp180
+import gps
 import pil_yuzde
 import hiz
 import telemetri
 import wifi
 import kalibre
 import guc_yonetimi
+import sis
 import otonom_ucus
 
 def thrd_fun(thread_fonksiyonu):
@@ -31,22 +33,26 @@ def main():
 
 	thrd_mpu9250 = Thread(target=thrd_fun(mpu9250.calistir))
 	thrd_bmp180 = Thread(target=thrd_fun(bmp180.calistir))
+	thrd_gps = Thread(target=thrd_fun(gps.calistir))
 	thrd_pil_yuzde = Thread(target=thrd_fun(pil_yuzde.calistir))
 	thrd_hiz = Thread(target=thrd_fun(hiz.calistir))
 	thrd_telemetri = Thread(target=thrd_fun(hiz.calistir))
 	thrd_wifi = Thread(target=thrd_fun(wifi.calistir))
 	thrd_kalibre = Thread(target=thrd_fun(komutlar.calistir))
 	thrd_guc_yonetimi = Thread(target=thrd_fun(guc_yonetimi.calistir))
+	thrd_sis = Thread(target=thrd_fun(sis.calistir))
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus.calistir))
 
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
+	thrd_gps.start()
 	thrd_pil_yuzde.start()
 	thrd_hiz.start()
 	thrd_telemetri.start()
 	thrd_wifi.start()
 	thrd_kalibre.start()
 	thrd_guc_yonetimi.start()
+	thrd_sis.start()
 	thrd_otonom_ucus.start()
 
 if __name__ == "__main__":

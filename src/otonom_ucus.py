@@ -8,6 +8,10 @@ def calistir():
 	GPIO.setwarnings(False)
 	GPIO.setmode(GPIO.BOARD)
 
+	# komutlarin ve statunun birbirini kesmeden calisabilmesi icin
+	# birbirinden ayrilmasi gerekiyor
+	# bu yuzden motor.py diye bir dosya olacak ve motorlari o kontrol edecek
+	# ayrica komut.py dosyasi da motorlari kontrol edebilecek
 	motor_pin = 11
 	GPIO.setup(motor_pin, GPIO.OUT)
 	motor_pwm = 30

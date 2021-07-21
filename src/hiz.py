@@ -5,9 +5,9 @@ from time import sleep
 
 def calistir():
 	onceki_yukseklik = tv.yukseklik
-	olcekleme_zamani = 1
+	sure = 1
 	while True:
 		yukseklik_degisimi = tv.yukseklik - onceki_yukseklik
-		tv.inis_hizi = yukseklik_degisimi / olcekleme_zamani
+		tv.inis_hizi = yukseklik_degisimi / sure
 		onceki_yukseklik = tv.yukseklik
-		sleep(olcekleme_zamani)
+		sleep(sure)
