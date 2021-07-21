@@ -34,6 +34,13 @@ def calistir():
 		# motor_pwm += delta
 		# falan filan
 
+		if tv.uydu_statusu == 1:
+			sleep(1)
+			pass
+		elif tv.uydu_statusu == 2:
+			sleep(0.5)
+			pass
+
 		# buralar da komple degisecek
 		motor.ChangeDutyCycle(motor_pwm)
 
@@ -44,3 +51,9 @@ def tasiyiciyi_ayir():
 	sleep(2)
 	# servoyu 0 dereceye ayarla
 	servo.ChangeDutyCycle(0)
+
+def motor_calistir(pwm = motor_pwm):
+	motor.ChangeDutyCycle(pwm)
+
+def motor_durdur():
+	motor.ChangeDutyCycle(0)

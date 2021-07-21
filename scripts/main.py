@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from threading import Thread
+from time import sleep
 import telemetri_verileri as tv
 import mpu9250
 import bmp180
@@ -14,6 +15,7 @@ import guc_yonetimi
 import sis
 import otonom_ucus
 import motor
+import yaw_donus
 
 def thrd_fun(thread_fonksiyonu):
 	def hata_denetleyici():
@@ -23,6 +25,7 @@ def thrd_fun(thread_fonksiyonu):
 			except BaseException as e:
 				with open("/home/pi/log.txt", "a") as f:
 					f.write("{}: {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.\n".format(tv.zaman_damgasi(), thread_fonksiyonu.__name__, e))
+				sleep(0.5)
 			else:
 				with open("/home/pi/log.txt", "a") as f:
 					f.write("{}: {} fonksiyonu basari ile sonlandi.\n".format(tv.zaman_damgasi(), thread_fonksiyonu.__name__))
@@ -44,6 +47,7 @@ def main():
 	thrd_sis = Thread(target=thrd_fun(sis.calistir))
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus.calistir))
 	thrd_motor = Thread(target=thrd_fun(motor.calistir))
+	thrd_yaw_donus = Thread(target=thrd_fun(yaw_donus.calistir))
 
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
@@ -57,6 +61,7 @@ def main():
 	thrd_sis.start()
 	thrd_otonom_ucus.start()
 	thrd_motor.start()
+	thrd_yaw_donus.start()
 
 if __name__ == "__main__":
 	main()

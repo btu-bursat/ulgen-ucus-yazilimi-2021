@@ -19,7 +19,7 @@ def calistir():
 		elif tv.komut == "2":
 			motor.tasiyiciyi_ayir()
 		elif tv.komut == "3":
-			pass
+			motor.motor_calistir()
 		elif tv.komut == "4":
-			motor.motor_pwm = 0
+			motor.motor_durdur()
 		sleep(1)
