@@ -2,6 +2,7 @@
 
 import telemetri_verileri as tv
 import RPi.GPIO as GPIO
+from time import sleep
 
 def calistir():
 	global motor, servo
@@ -35,4 +36,11 @@ def calistir():
 
 		# buralar da komple degisecek
 		motor.ChangeDutyCycle(motor_pwm)
-		servo.ChangeDutyCycle(servo_pwm)
+
+def tasiyiciyi_ayir():
+	# servoyu 180 dereceye ayarla
+	servo.ChangeDutyCycle(12)
+	# ayrılmasını bekle
+	sleep(2)
+	# servoyu 0 dereceye ayarla
+	servo.ChangeDutyCycle(0)
