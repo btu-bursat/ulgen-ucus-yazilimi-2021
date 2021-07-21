@@ -9,10 +9,11 @@ import pil_yuzde
 import hiz
 import telemetri
 import wifi
-import kalibre
+import komut
 import guc_yonetimi
 import sis
 import otonom_ucus
+import motor
 
 def thrd_fun(thread_fonksiyonu):
 	def hata_denetleyici():
@@ -38,10 +39,11 @@ def main():
 	thrd_hiz = Thread(target=thrd_fun(hiz.calistir))
 	thrd_telemetri = Thread(target=thrd_fun(hiz.calistir))
 	thrd_wifi = Thread(target=thrd_fun(wifi.calistir))
-	thrd_kalibre = Thread(target=thrd_fun(komutlar.calistir))
+	thrd_komut = Thread(target=thrd_fun(komut.calistir))
 	thrd_guc_yonetimi = Thread(target=thrd_fun(guc_yonetimi.calistir))
 	thrd_sis = Thread(target=thrd_fun(sis.calistir))
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus.calistir))
+	thrd_motor = Thread(target=thrd_fun(motor.calistir))
 
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
@@ -50,10 +52,11 @@ def main():
 	thrd_hiz.start()
 	thrd_telemetri.start()
 	thrd_wifi.start()
-	thrd_kalibre.start()
+	thrd_komut.start()
 	thrd_guc_yonetimi.start()
 	thrd_sis.start()
 	thrd_otonom_ucus.start()
+	thrd_motor.start()
 
 if __name__ == "__main__":
 	main()
