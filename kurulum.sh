@@ -13,7 +13,7 @@ fi
 #pip3 install FaBo9Axis-MPU9250-python3 adafruit-circuitpython-bmp280
 
 # Butun kodlar /home/pi/ dizine tasinir
-cp src/* /home/pi/
+cp scripts/* /home/pi/
 
 # Servislerin yuklenmesi
 cp ulgen.service /etc/systemd/system/
