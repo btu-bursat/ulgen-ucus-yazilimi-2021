@@ -26,6 +26,7 @@ def baslat():
 
 	takim_no = son_telemetri[0]
 	paket_numarasi = son_telemetri[1]
+	# zaman verisi gercek zamanli olarak olculecegi icin okunmasina gerek yok
 	basinc = son_telemetri[4]
 	yukseklik = son_telemetri[5]
 	inis_hizi = son_telemetri[6]
