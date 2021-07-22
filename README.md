@@ -4,8 +4,8 @@
 
 ```bash
 sudo apt install git
-git clone https://github.com/Bursat/bursat-1b-ucus-yazilimi-2021.git
-cd bursat-1b-ucus-yazilimi-2021
+git clone https://github.com/Bursat/ulgen-ucus-yazilimi-2021.git
+cd ulgen-ucus-yazilimi-2021
 sudo ./kurulum.sh
 ```
 
