@@ -39,7 +39,9 @@ def calistir():
 
 # burasi gps sensorundeki saat verisi ile degisebilir
 def zaman_damgasi():
-	zaman = datetime.now()
+	return str(tv.gun) + "/" + str(tv.ay) + "/" + str(tv.yil) + "," + str(tv.saat) + ":" + str(tv.dakika) + ":" + str(tv.saniye)
+	"""zaman = datetime.now()
 	gun_ay_yil = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
 	saat_dakika_saniye = str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
 	return gun_ay_yil + "," + saat_dakika_saniye
+	"""

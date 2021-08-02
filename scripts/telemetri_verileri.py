@@ -20,6 +20,8 @@ def baslat():
 	global max_gerilim, min_gerilim
 	global gerilim_araligi
 	global pil_yuzde
+	global saat, dakika, saniye
+	global gun, ay, yil
 
 	with open("/home/pi/son_telemetri", "r") as f:
 		son_telemetri = f.read().split(",")
@@ -44,3 +46,5 @@ def baslat():
 	max_gerilim, min_gerilim = 4.2, 3.6
 	gerilim_araligi = max_gerilim - min_gerilim
 	pil_yuzde = 100
+	saat, dakika, saniye = 0, 0, 0
+	gun, ay, yil = 0, 0, 0
