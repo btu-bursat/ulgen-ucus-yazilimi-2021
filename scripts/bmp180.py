@@ -10,8 +10,9 @@ def calistir():
 	bmp180 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
 	#bmp180.sea_level_pressure = 1013.25
 	while True:
-		bmp180.sea_level_pressure = tv.sifir_noktasi
+		bmp180.sea_level_pressure = 1013.25#tv.sifir_noktasi
 		tv.sicaklik = bmp180.temperature
 		tv.basinc = bmp180.pressure
 		tv.yukseklik = bmp180.altitude
 		sleep(0.5)
+		print("hey")

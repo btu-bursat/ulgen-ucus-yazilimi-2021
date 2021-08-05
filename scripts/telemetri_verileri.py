@@ -24,7 +24,10 @@ def baslat():
 	with open("/home/pi/son_telemetri", "r") as f:
 		son_telemetri = f.read().split(",")
 
-	takim_no = son_telemetri[0]
+	if len(son_telemetri) <= 1:
+		return
+
+	takim_no = 39374
 	paket_numarasi = son_telemetri[1]
 	# zaman verisi gercek zamanli olarak olculecegi icin okunmasina gerek yok
 	basinc = son_telemetri[4]

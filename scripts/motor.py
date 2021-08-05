@@ -52,7 +52,7 @@ def tasiyiciyi_ayir():
 	# servoyu 0 dereceye ayarla
 	servo.ChangeDutyCycle(0)
 
-def motor_calistir(pwm = motor_pwm):
+def motor_calistir(pwm):
 	motor.ChangeDutyCycle(pwm)
 
 def motor_durdur():
