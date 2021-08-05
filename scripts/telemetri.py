@@ -25,14 +25,15 @@ def calistir():
 		tv.telemetri_paketi += str(tv.roll) + ","
 		tv.telemetri_paketi += str(tv.yaw) + ","
 		tv.telemetri_paketi += str(tv.donus_sayisi) + ","
-		tv.telemetri_paketi += str(tv.video_aktarim_bilgisi) + "\n"
+		tv.telemetri_paketi += str(tv.video_aktarim_bilgisi)
 
 		with open("/home/pi/telemetri.txt", "a") as f:
-			print("yazdi")
-			f.write(tv.telemetri_paketi)
+			f.write(tv.telemetri_paketi + "\n")
 
 		with open("/home/pi/son_telemetri", "w") as f:
 			f.write(tv.telemetri_paketi)
+
+		tv.paket_numarasi = int(tv.paket_numarasi) + 1
 
 		sure = time.time() - baslangic
 		if sure < 1:

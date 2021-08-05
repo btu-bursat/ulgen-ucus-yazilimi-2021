@@ -31,7 +31,8 @@ def baslat():
 
 	takim_no = 39374
 	paket_numarasi = son_telemetri[1]
-	# zaman verisi gercek zamanli olarak olculecegi icin okunmasina gerek yok
+	gun, ay, yil = 0, 0, 0
+	saat, dakika, saniye = 0, 0, 0
 	basinc = son_telemetri[4]
 	yukseklik = son_telemetri[5]
 	inis_hizi = son_telemetri[6]
@@ -43,11 +44,11 @@ def baslat():
 	donus_sayisi = son_telemetri[16]
 	video_aktarim_bilgisi = son_telemetri[17]
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
+	# !!!!!!
+	# sifir noktasindaki basınç sd karta da yazılıp oradan okunmalı
 	sifir_noktasi = 1013.25
 	komut = "0"
 	telemetri_paketi = ""
 	max_gerilim, min_gerilim = 4.2, 3.6
 	gerilim_araligi = max_gerilim - min_gerilim
 	pil_yuzde = 100
-	saat, dakika, saniye = 0, 0, 0
-	gun, ay, yil = 0, 0, 0

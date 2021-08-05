@@ -25,8 +25,8 @@ def thrd_fun(sinif_ismi, thread_fonksiyonu):
 				thread_fonksiyonu()
 			except BaseException as e:
 				with open("/home/pi/log.txt", "a") as f:
-					f.write("{}: {} sinifindan {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.\n".format(telemetri.zaman_damgasi(), sinif_ismi.__name__, thread_fonksiyonu.__name__, e))
-				sleep(0.1)
+					f.write("{}, {}: {} sinifindan {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.\n".format(telemetri.zaman_damgasi(), tv.paket_numarasi, sinif_ismi.__name__, thread_fonksiyonu.__name__, e))
+				sleep(0.5)
 			else:
 				with open("/home/pi/log.txt", "a") as f:
 					f.write("{}: {} fonksiyonu basari ile sonlandi.\n".format(telemetri.zaman_damgasi(), thread_fonksiyonu.__name__))
@@ -53,7 +53,7 @@ def main():
 
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
-	#thrd_gps.start()
+	thrd_gps.start()
 	#thrd_pil_yuzde.start()
 	#thrd_hiz.start()
 	thrd_telemetri.start()
