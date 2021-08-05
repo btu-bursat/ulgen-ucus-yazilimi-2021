@@ -16,7 +16,6 @@ import sis
 import otonom_ucus
 import motor
 import yaw_donus
-import deneme
 
 def thrd_fun(sinif_ismi, thread_fonksiyonu):
 	def hata_denetleyici():
@@ -49,13 +48,12 @@ def main():
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus, otonom_ucus.calistir))
 	thrd_motor = Thread(target=thrd_fun(motor, motor.calistir))
 	thrd_yaw_donus = Thread(target=thrd_fun(yaw_donus, yaw_donus.calistir))
-	thrd_deneme = Thread(target=thrd_fun(deneme, deneme.calistir))
 
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
 	thrd_gps.start()
 	#thrd_pil_yuzde.start()
-	#thrd_hiz.start()
+	thrd_hiz.start()
 	thrd_telemetri.start()
 	#thrd_wifi.start()
 	#thrd_komut.start()
@@ -64,7 +62,6 @@ def main():
 	#thrd_otonom_ucus.start()
 	#thrd_motor.start()
 	#thrd_yaw_donus.start()
-	#thrd_deneme.start()
 
 if __name__ == "__main__":
 	main()

@@ -10,7 +10,7 @@ def calistir():
 		tv.ivme_x = mpu9250.readAccel()['x']
 		tv.ivme_y = mpu9250.readAccel()['y']
 		tv.ivme_z = mpu9250.readAccel()['z']
-		tv.pitch = mpu9250.readGyro()['x']
-		tv.roll = mpu9250.readGyro()['y']
+		tv.roll = mpu9250.readGyro()['x']
+		tv.pitch = mpu9250.readGyro()['y']
 		tv.yaw = mpu9250.readGyro()['z']
-		sleep(0.5)
+		sleep(0.3)
