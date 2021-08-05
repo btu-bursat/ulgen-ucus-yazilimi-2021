@@ -11,4 +11,4 @@ sudo ./kurulum.sh
 
 ## Lisans
 
-[LICENSE](LICENSE)
+Lisans bilgisi için [tıklayın.](LICENSE)
