@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Ulgen, 2021
 
 def baslat():
 	global takim_no

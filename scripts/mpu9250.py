@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Ulgen, 2021
 
 import telemetri_verileri as tv
 from FaBo9Axis_MPU9250 import MPU9250

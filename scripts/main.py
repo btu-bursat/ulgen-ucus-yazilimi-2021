@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Ulgen, 2021
 
 from threading import Thread
 from time import sleep
