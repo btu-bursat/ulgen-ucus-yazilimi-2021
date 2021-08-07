@@ -9,24 +9,26 @@ def calistir():
 	while True:
 		baslangic = time.time()
 
-		tv.telemetri_paketi  = ""
-		tv.telemetri_paketi += str(tv.takim_no) + ","
-		tv.telemetri_paketi += str(tv.paket_numarasi) + ","
-		tv.telemetri_paketi += str(zaman_damgasi()) + ","
-		tv.telemetri_paketi += str(tv.basinc) + ","
-		tv.telemetri_paketi += str(tv.yukseklik) + ","
-		tv.telemetri_paketi += str(tv.inis_hizi) + ","
-		tv.telemetri_paketi += str(tv.sicaklik) + ","
-		tv.telemetri_paketi += str(tv.pil_gerilimi) + ","
-		tv.telemetri_paketi += str(tv.gps_latitude) + ","
-		tv.telemetri_paketi += str(tv.gps_longitude) + ","
-		tv.telemetri_paketi += str(tv.gps_altitude) + ","
-		tv.telemetri_paketi += str(tv.uydu_statusu) + ","
-		tv.telemetri_paketi += str(tv.pitch) + ","
-		tv.telemetri_paketi += str(tv.roll) + ","
-		tv.telemetri_paketi += str(tv.yaw) + ","
-		tv.telemetri_paketi += str(tv.donus_sayisi) + ","
-		tv.telemetri_paketi += str(tv.video_aktarim_bilgisi)
+		tmp  = ""
+		tmp += str(tv.takim_no) + ","
+		tmp += str(tv.paket_numarasi) + ","
+		tmp += str(zaman_damgasi()) + ","
+		tmp += str(tv.basinc) + ","
+		tmp += str(tv.yukseklik) + ","
+		tmp += str(tv.inis_hizi) + ","
+		tmp += str(tv.sicaklik) + ","
+		tmp += str(tv.pil_gerilimi) + ","
+		tmp += str(tv.gps_latitude) + ","
+		tmp += str(tv.gps_longitude) + ","
+		tmp += str(tv.gps_altitude) + ","
+		tmp += str(tv.uydu_statusu) + ","
+		tmp += str(tv.pitch) + ","
+		tmp += str(tv.roll) + ","
+		tmp += str(tv.yaw) + ","
+		tmp += str(tv.donus_sayisi) + ","
+		tmp += str(tv.video_aktarim_bilgisi)
+
+		tv.telemetri_paketi = tmp
 
 		with open("/home/pi/telemetri.txt", "a") as f:
 			f.write(tv.telemetri_paketi + "\n")
