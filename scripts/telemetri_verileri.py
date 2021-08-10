@@ -30,23 +30,23 @@ def baslat():
 	if len(son_telemetri) <= 1:
 		return
 
-	takim_no = 39374
-	paket_numarasi = son_telemetri[1]
+	takim_no = int(son_telemetri[0]) #39374
+	paket_numarasi = int(son_telemetri[1]) + 1
 	gun, ay, yil = 0, 0, 0
 	saat, dakika, saniye = 0, 0, 0
-	basinc = son_telemetri[4]
-	yukseklik = son_telemetri[5]
-	inis_hizi = son_telemetri[6]
-	sicaklik = son_telemetri[7]
-	pil_gerilimi = son_telemetri[8]
-	gps_latitude, gps_longitude, gps_altitude = son_telemetri[9], son_telemetri[10], son_telemetri[11]
-	uydu_statusu = son_telemetri[12]
-	pitch, roll, yaw = son_telemetri[13], son_telemetri[14], son_telemetri[15]
-	donus_sayisi = son_telemetri[16]
-	video_aktarim_bilgisi = son_telemetri[17]
+	basinc = float(son_telemetri[4])
+	yukseklik = float(son_telemetri[5])
+	inis_hizi = float(son_telemetri[6])
+	sicaklik = float(son_telemetri[7])
+	pil_gerilimi = float(son_telemetri[8])
+	gps_latitude, gps_longitude, gps_altitude = float(son_telemetri[9]), float(son_telemetri[10]), float(son_telemetri[11])
+	uydu_statusu = int(son_telemetri[12])
+	pitch, roll, yaw = float(son_telemetri[13]), float(son_telemetri[14]), float(son_telemetri[15])
+	donus_sayisi = int(son_telemetri[16])
+	video_aktarim_bilgisi = str(son_telemetri[17])
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
 	# !!!!!!
-	# sifir noktasindaki basınç sd karta da yazılıp oradan okunmalı
+	# sifir noktasindaki basınc sd karta da yazılıp oradan okunmalı
 	sifir_noktasi = 1013.25
 	komut = "0"
 	telemetri_paketi = ""

@@ -13,11 +13,11 @@ def calistir():
 		tmp += str(tv.takim_no) + ","
 		tmp += str(tv.paket_numarasi) + ","
 		tmp += str(zaman_damgasi()) + ","
-		tmp += str(tv.basinc) + ","
-		tmp += str(tv.yukseklik) + ","
-		tmp += str(tv.inis_hizi) + ","
-		tmp += str(tv.sicaklik) + ","
-		tmp += str(tv.pil_gerilimi) + ","
+		tmp += "%.2f" % tv.basinc + ","
+		tmp += "%.2f" % tv.yukseklik + ","
+		tmp += "%.2f" % tv.inis_hizi + ","
+		tmp += "%.1f" % tv.sicaklik + ","
+		tmp += "%.2f" % tv.pil_gerilimi + ","
 		tmp += str(tv.gps_latitude) + ","
 		tmp += str(tv.gps_longitude) + ","
 		tmp += str(tv.gps_altitude) + ","
@@ -45,8 +45,3 @@ def calistir():
 # burasi gps sensorundeki saat verisi ile degisebilir
 def zaman_damgasi():
 	return str(tv.gun) + "/" + str(tv.ay) + "/" + str(tv.yil) + "," + str(tv.saat) + ":" + str(tv.dakika) + ":" + str(tv.saniye)
-	"""zaman = datetime.now()
-	gun_ay_yil = str(zaman.day) + "/" + str(zaman.month) + "/" + str(zaman.year)
-	saat_dakika_saniye = str(zaman.hour) + ":" + str(zaman.minute) + ":" + str(zaman.second)
-	return gun_ay_yil + "," + saat_dakika_saniye
-	"""
