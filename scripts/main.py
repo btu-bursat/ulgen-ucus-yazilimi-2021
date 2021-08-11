@@ -56,7 +56,7 @@ def main():
 	#thrd_pil_yuzde.start()
 	thrd_hiz.start()
 	thrd_telemetri.start()
-	#thrd_wifi.start()
+	thrd_wifi.start()
 	#thrd_komut.start()
 	#thrd_guc_yonetimi.start()
 	#thrd_sis.start()
