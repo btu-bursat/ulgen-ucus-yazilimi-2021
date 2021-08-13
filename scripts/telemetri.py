@@ -22,9 +22,9 @@ def calistir():
 		tmp += str(tv.gps_longitude) + ","
 		tmp += str(tv.gps_altitude) + ","
 		tmp += str(tv.uydu_statusu) + ","
-		tmp += str(tv.pitch) + ","
-		tmp += str(tv.roll) + ","
-		tmp += str(tv.yaw) + ","
+		tmp += "%.2f" % tv.pitch + ","
+		tmp += "%.2f" % tv.roll + ","
+		tmp += "%.2f" % tv.yaw + ","
 		tmp += str(tv.donus_sayisi) + ","
 		tmp += str(tv.video_aktarim_bilgisi)
 
