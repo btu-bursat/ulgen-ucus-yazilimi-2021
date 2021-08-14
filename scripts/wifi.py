@@ -14,9 +14,13 @@ def calistir():
 
 	while True:
 		tv.komut = conn.recv(1024).decode()
+		print(tv.komut)
 		if not tv.komut:
 			tv.komut = "0"
 		if tv.komut == "5":
 			# video aktarimi burada olacak
 			pass
+		if tv.komut != "0":
+			with open("/home/pi/komut", "w") as f:
+				f.write(tv.komut)
 		conn.send(tv.telemetri_paketi.encode())

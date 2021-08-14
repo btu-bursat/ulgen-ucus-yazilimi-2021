@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # Ulgen, 2021
 
-import telemetri_verileri as tv
 import RPi.GPIO as GPIO
 from time import sleep
 
-def calistir():
+def main():
 	global MOTOR_MIN_PWM, MOTOR_MAX_PWM
 	global MOTOR_PWM_ARALIGI
 	global MOTOR_PWM
@@ -18,8 +17,6 @@ def calistir():
 	MOTOR_PWM = 0
 	MOTOR_PIN_1, MOTOR_PIN_2 = 10, 38
 	AYRILMA_SIS_PIN = 11
-
-	GPIO.cleanup()
 
 	GPIO.setwarnings(False)
 	GPIO.setmode(GPIO.BOARD)
@@ -35,6 +32,19 @@ def calistir():
 	motor_1.start(0)
 	motor_2.start(0)
 
+	while True:
+		komut = "0"
+		with open("/home/pi/komut", "r") as f:
+			komut = f.read()
+		if komut == "2":
+			tasiyiciyi_ayir()
+		elif komut == "3":
+			motor_calistir(30)
+		elif komut == "4":
+			motor_calistir(0)
+		with open("/home/pi/komut", "w") as f:
+			f.write("0")
+
 def tasiyiciyi_ayir():
 	print(AYRILMA_SIS_PIN)
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.HIGH)
@@ -46,6 +56,5 @@ def motor_calistir(yuzde):
 	motor_1.ChangeDutyCycle(MOTOR_PWM)
 	motor_2.ChangeDutyCycle(MOTOR_PWM)
 
-def motor_durdur():
-	motor_1.ChangeDutyCycle(0)
-	motor_2.ChangeDutyCycle(0)
+if __name__ == "__main__":
+	main()

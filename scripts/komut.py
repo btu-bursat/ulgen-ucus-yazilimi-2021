@@ -16,9 +16,3 @@ def calistir():
 			tv.sifir_noktasi = tv.basinc
 			tv.paket_numarasi = 1
 			tv.uydu_statusu = 1
-		elif tv.komut == "2":
-			motor.tasiyiciyi_ayir()
-		elif tv.komut == "3":
-			motor.motor_calistir(30)
-		elif tv.komut == "4":
-			motor.motor_durdur()
