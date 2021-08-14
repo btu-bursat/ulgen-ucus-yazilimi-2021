@@ -16,11 +16,13 @@ def calistir():
 	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 18.5, 23
 	MOTOR_PWM_ARALIGI = MOTOR_MAX_PWM - MOTOR_MIN_PWM
 	MOTOR_PWM = 0
-	MOTOR_PIN_1, MOTOR_PIN_2 = 10, 13
+	MOTOR_PIN_1, MOTOR_PIN_2 = 10, 38
 	AYRILMA_SIS_PIN = 11
+	GPIO.cleanup()
+	print("temiz")
 
-	GPIO.setmode(GPIO.BOARD)
 	GPIO.setwarnings(False)
+	#GPIO.setmode(GPIO.BOARD)
 
 	GPIO.setup(MOTOR_PIN_1, GPIO.OUT)
 	GPIO.setup(MOTOR_PIN_2, GPIO.OUT)
@@ -35,6 +37,7 @@ def calistir():
 	motor_2.start(0)
 
 def tasiyiciyi_ayir():
+	print(AYRILMA_SIS_PIN)
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.HIGH)
 	sleep(3)
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.LOW)

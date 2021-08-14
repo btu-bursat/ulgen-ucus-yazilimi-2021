@@ -19,7 +19,6 @@ def calistir():
 		elif tv.komut == "2":
 			motor.tasiyiciyi_ayir()
 		elif tv.komut == "3":
-			motor.motor_calistir()
+			motor.motor_calistir(30)
 		elif tv.komut == "4":
 			motor.motor_durdur()
-		tv.komut = "0"
