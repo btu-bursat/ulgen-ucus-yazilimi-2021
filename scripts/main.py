@@ -48,17 +48,17 @@ def main():
 	thrd_motor = Thread(target=thrd_fun(motor, motor.calistir))
 	thrd_yaw_donus = Thread(target=thrd_fun(yaw_donus, yaw_donus.calistir))
 
-	thrd_mpu9250.start()
-	thrd_bmp180.start()
-	thrd_gps.start()
+	#thrd_mpu9250.start()
+	#thrd_bmp180.start()
+	#thrd_gps.start()
 	#thrd_pil_yuzde.start()
-	thrd_hiz.start()
+	#thrd_hiz.start()
 	thrd_telemetri.start()
 	thrd_wifi.start()
 	thrd_komut.start()
 	#thrd_guc_yonetimi.start()
 	#thrd_otonom_ucus.start()
-	thrd_motor.start()
+	#thrd_motor.start()
 	#thrd_yaw_donus.start()
 
 if __name__ == "__main__":

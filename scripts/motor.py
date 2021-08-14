@@ -18,18 +18,17 @@ def calistir():
 	MOTOR_PWM = 0
 	MOTOR_PIN_1, MOTOR_PIN_2 = 10, 38
 	AYRILMA_SIS_PIN = 11
+
 	GPIO.cleanup()
-	print("temiz")
 
 	GPIO.setwarnings(False)
-	#GPIO.setmode(GPIO.BOARD)
+	GPIO.setmode(GPIO.BOARD)
 
 	GPIO.setup(MOTOR_PIN_1, GPIO.OUT)
 	GPIO.setup(MOTOR_PIN_2, GPIO.OUT)
 	GPIO.setup(AYRILMA_SIS_PIN, GPIO.OUT)
 
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.LOW)
-
 	motor_1 = GPIO.PWM(MOTOR_PIN_1, 50)
 	motor_2 = GPIO.PWM(MOTOR_PIN_2, 50)
 
