@@ -23,4 +23,3 @@ def calistir():
 		elif tv.komut == "4":
 			motor.motor_durdur()
 		tv.komut = "0"
-		sleep(1)

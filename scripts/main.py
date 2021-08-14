@@ -13,7 +13,6 @@ import telemetri
 import wifi
 import komut
 import guc_yonetimi
-import sis
 import otonom_ucus
 import motor
 import yaw_donus
@@ -45,7 +44,6 @@ def main():
 	thrd_wifi = Thread(target=thrd_fun(wifi, wifi.calistir))
 	thrd_komut = Thread(target=thrd_fun(komut, komut.calistir))
 	thrd_guc_yonetimi = Thread(target=thrd_fun(guc_yonetimi, guc_yonetimi.calistir))
-	thrd_sis = Thread(target=thrd_fun(sis, sis.calistir))
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus, otonom_ucus.calistir))
 	thrd_motor = Thread(target=thrd_fun(motor, motor.calistir))
 	thrd_yaw_donus = Thread(target=thrd_fun(yaw_donus, yaw_donus.calistir))
@@ -57,9 +55,8 @@ def main():
 	thrd_hiz.start()
 	thrd_telemetri.start()
 	thrd_wifi.start()
-	#thrd_komut.start()
+	thrd_komut.start()
 	#thrd_guc_yonetimi.start()
-	#thrd_sis.start()
 	#thrd_otonom_ucus.start()
 	#thrd_motor.start()
 	#thrd_yaw_donus.start()

@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# Ulgen, 2021
+#!/usr/bin/env python3 Ulgen, 2021
 
 import telemetri_verileri as tv
 import socket
@@ -7,7 +6,7 @@ from time import sleep
 
 def calistir():
 	host = "0.0.0.0"
-	port = 5003
+	port = 5002
 	uydu_socket = socket.socket()
 	uydu_socket.bind((host, port))
 	uydu_socket.listen(1)

@@ -6,55 +6,44 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 def calistir():
-	global motor, servo
-	global motor_pin, servo_pin
-	global motor_pwm, motor_bonus_pwm, motor_dusuk_pwm
-	global servo_pwm
+	global MOTOR_MIN_PWM, MOTOR_MAX_PWM
+	global MOTOR_PWM_ARALIGI
+	global MOTOR_PWM
+	global MOTOR_PIN_1, MOTOR_PIN_2
+	global AYRILMA_SIS_PIN
+	global motor_1, motor_2
 
-	GPIO.setwarnings(False)
+	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 18.5, 23
+	MOTOR_PWM_ARALIGI = MOTOR_MAX_PWM - MOTOR_MIN_PWM
+	MOTOR_PWM = 0
+	MOTOR_PIN_1, MOTOR_PIN_2 = 10, 13
+	AYRILMA_SIS_PIN = 11
+
 	GPIO.setmode(GPIO.BOARD)
+	GPIO.setwarnings(False)
 
-	motor_pin, servo_pin = 11, 7
-	GPIO.setup(motor_pin, GPIO.OUT)
-	GPIO.setup(servo_pin, GPIO.OUT)
+	GPIO.setup(MOTOR_PIN_1, GPIO.OUT)
+	GPIO.setup(MOTOR_PIN_2, GPIO.OUT)
+	GPIO.setup(AYRILMA_SIS_PIN, GPIO.OUT)
 
-	motor = GPIO.PWM(motor_pin, 50)
-	servo = GPIO.PWM(servo_pin, 50)
+	GPIO.output(AYRILMA_SIS_PIN, GPIO.LOW)
 
-	motor.start(0)
-	servo.start(0)
+	motor_1 = GPIO.PWM(MOTOR_PIN_1, 50)
+	motor_2 = GPIO.PWM(MOTOR_PIN_2, 50)
 
-	motor_pwm = 30
-	motor_dusuk_pwm = 15
-	motor_bonus_pwm = 50
-	servo_pwm = 0
-
-	while True:
-		# ivmeye gore pwm burada ayarlanacak
-		# tv.ivme_y
-		# motor_pwm += delta
-		# falan filan
-
-		if tv.uydu_statusu == 1:
-			sleep(1)
-			pass
-		elif tv.uydu_statusu == 2:
-			sleep(0.5)
-			pass
-
-		# buralar da komple degisecek
-		motor.ChangeDutyCycle(motor_pwm)
+	motor_1.start(0)
+	motor_2.start(0)
 
 def tasiyiciyi_ayir():
-	# servoyu 180 dereceye ayarla
-	servo.ChangeDutyCycle(12)
-	# ayrılmasını bekle
-	sleep(2)
-	# servoyu 0 dereceye ayarla
-	servo.ChangeDutyCycle(0)
+	GPIO.output(AYRILMA_SIS_PIN, GPIO.HIGH)
+	sleep(3)
+	GPIO.output(AYRILMA_SIS_PIN, GPIO.LOW)
 
-def motor_calistir(pwm):
-	motor.ChangeDutyCycle(pwm)
+def motor_calistir(yuzde):
+	MOTOR_PWM = MOTOR_MIN_PWM + ((yuzde / 100) * MOTOR_PWM_ARALIGI)
+	motor_1.ChangeDutyCycle(MOTOR_PWM)
+	motor_2.ChangeDutyCycle(MOTOR_PWM)
 
 def motor_durdur():
-	motor.ChangeDutyCycle(0)
+	motor_1.ChangeDutyCycle(0)
+	motor_2.ChangeDutyCycle(0)
