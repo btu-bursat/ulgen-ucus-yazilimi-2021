@@ -50,9 +50,9 @@ def main():
 
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
-	#thrd_gps.start()
+	thrd_gps.start()
 	#thrd_pil_yuzde.start()
-	#thrd_hiz.start()
+	thrd_hiz.start()
 	thrd_telemetri.start()
 	thrd_wifi.start()
 	thrd_komut.start()

@@ -17,9 +17,13 @@ cp scripts/* /home/pi/
 
 # Servislerin yuklenmesi
 cp ulgen.service /etc/systemd/system/
+cp motor.service /etc/systemd/system/
 
 # Servislerin etkinlestirilmesi
 systemctl daemon-reload
 
 systemctl enable ulgen
 systemctl start ulgen
+
+systemctl enable motor
+systemctl start motor

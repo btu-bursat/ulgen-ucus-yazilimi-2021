@@ -38,7 +38,7 @@ def baslat():
 	yukseklik = float(son_telemetri[5])
 	inis_hizi = float(son_telemetri[6])
 	sicaklik = float(son_telemetri[7])
-	pil_gerilimi = float(son_telemetri[8])
+	pil_gerilimi = 12.1
 	gps_latitude, gps_longitude, gps_altitude = float(son_telemetri[9]), float(son_telemetri[10]), float(son_telemetri[11])
 	uydu_statusu = int(son_telemetri[12])
 	pitch, roll, yaw = float(son_telemetri[13]), float(son_telemetri[14]), float(son_telemetri[15])

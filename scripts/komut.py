@@ -16,3 +16,4 @@ def calistir():
 			tv.sifir_noktasi = tv.basinc
 			tv.paket_numarasi = 1
 			tv.uydu_statusu = 1
+			tv.sicaklik = 30
