@@ -12,10 +12,10 @@ def main():
 	global AYRILMA_SIS_PIN
 	global motor_1, motor_2
 
-	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 18.5, 23
+	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 18.5, 22
 	MOTOR_PWM_ARALIGI = MOTOR_MAX_PWM - MOTOR_MIN_PWM
 	MOTOR_PWM = 0
-	MOTOR_PIN_1, MOTOR_PIN_2 = 10, 38
+	MOTOR_PIN_1, MOTOR_PIN_2 = 32, 33
 	AYRILMA_SIS_PIN = 11
 
 	GPIO.setwarnings(False)
@@ -39,9 +39,9 @@ def main():
 		if komut == "2":
 			tasiyiciyi_ayir()
 		elif komut == "3":
-			motor_calistir(30)
+			motor_calistir(20)
 		elif komut == "4":
-			motor_calistir(0)
+			motor_durdur()
 		with open("/home/pi/komut", "w") as f:
 			f.write("0")
 
@@ -52,9 +52,29 @@ def tasiyiciyi_ayir():
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.LOW)
 
 def motor_calistir(yuzde):
-	MOTOR_PWM = MOTOR_MIN_PWM + ((yuzde / 100) * MOTOR_PWM_ARALIGI)
-	motor_1.ChangeDutyCycle(MOTOR_PWM)
-	motor_2.ChangeDutyCycle(MOTOR_PWM)
+	#MOTOR_PWM = MOTOR_MIN_PWM + ((yuzde / 100) * MOTOR_PWM_ARALIGI)
+	#motor_1.ChangeDutyCycle(MOTOR_PWM)
+	#motor_2.ChangeDutyCycle(MOTOR_PWM)
+	print("motor calisio")
+	motor_1.ChangeDutyCycle(18)
+	motor_2.ChangeDutyCycle(18)
+	sleep(1)
+	motor_1.ChangeDutyCycle(18.5)
+	motor_2.ChangeDutyCycle(18.5)
+	sleep(1)
+	motor_1.ChangeDutyCycle(18.7)
+	motor_2.ChangeDutyCycle(18.7)
+	sleep(1)
+	motor_1.ChangeDutyCycle(19)
+	motor_2.ChangeDutyCycle(19)
+	sleep(1)
+	motor_1.ChangeDutyCycle(19.5)
+	motor_2.ChangeDutyCycle(19.5)
+
+def motor_durdur():
+	print("motor durdu")
+	motor_1.ChangeDutyCycle(0)
+	motor_2.ChangeDutyCycle(0)
 
 if __name__ == "__main__":
 	main()
