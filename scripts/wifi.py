@@ -14,9 +14,10 @@ def calistir():
 
 	while True:
 		tv.komut = conn.recv(1024).decode()
-		print(tv.komut)
+
 		if not tv.komut:
 			tv.komut = "0"
+
 		if tv.komut[0] == "5":
 			boyut = int(tv.komut.split(" ")[1])
 			parca = boyut // 1024
@@ -25,11 +26,10 @@ def calistir():
 			video = bytes()
 			for i in range(parca + 1):
 				video += conn.recv(1024)
-			print("gelen boyut: ", len(video))
 			with open("/home/pi/video.mp4", "wb") as f:
 				f.write(video)
-				print("yazildi")
+
 		if tv.komut != "0":
-			with open("/home/pi/komut", "w") as f:
-				f.write(tv.komut)
+			tv.motor_socket.send(tv.komut.encode())
+			
 		conn.send(tv.telemetri_paketi.encode())

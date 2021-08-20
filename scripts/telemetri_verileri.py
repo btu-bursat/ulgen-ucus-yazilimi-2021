@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # Ulgen, 2021
 
+import socket
+
 def baslat():
 	global takim_no
 	global paket_numarasi
@@ -23,6 +25,7 @@ def baslat():
 	global pil_yuzde
 	global saat, dakika, saniye
 	global gun, ay, yil
+	global motor_socket
 
 	with open("/home/pi/son_telemetri", "r") as f:
 		son_telemetri = f.read().split(",")
@@ -30,7 +33,7 @@ def baslat():
 	if len(son_telemetri) <= 1:
 		return
 
-	takim_no = int(son_telemetri[0]) #39374
+	takim_no = 39374
 	paket_numarasi = int(son_telemetri[1]) + 1
 	gun, ay, yil = 0, 0, 0
 	saat, dakika, saniye = 0, 0, 0
@@ -46,10 +49,18 @@ def baslat():
 	video_aktarim_bilgisi = str(son_telemetri[17])
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
 	# !!!!!!
-	# sifir noktasindaki basınc sd karta da yazılıp oradan okunmalı
+	# sifir noktasindaki basınc sd karta da yazılıp oradan okunmali
 	sifir_noktasi = 1013.25
 	komut = "0"
 	telemetri_paketi = ""
 	max_gerilim, min_gerilim = 4.2, 3.6
 	gerilim_araligi = max_gerilim - min_gerilim
 	pil_yuzde = 100
+
+	# motor kontrolu icin socket kutuphanesi kullanilarak haberlesilecek
+	host = "0.0.0.0"
+	port = 5000
+	motor_socket = socket.socket()
+	motor_socket.bind((host, port))
+	motor_socket.listen(1)
+	conn, addr = motor_socket.accept()

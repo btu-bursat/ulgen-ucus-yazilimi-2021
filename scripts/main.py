@@ -14,7 +14,6 @@ import wifi
 import komut
 import guc_yonetimi
 import otonom_ucus
-#import motor
 import yaw_donus
 
 def thrd_fun(sinif_ismi, thread_fonksiyonu):
@@ -45,7 +44,6 @@ def main():
 	thrd_komut = Thread(target=thrd_fun(komut, komut.calistir))
 	thrd_guc_yonetimi = Thread(target=thrd_fun(guc_yonetimi, guc_yonetimi.calistir))
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus, otonom_ucus.calistir))
-	#thrd_motor = Thread(target=thrd_fun(motor, motor.calistir))
 	thrd_yaw_donus = Thread(target=thrd_fun(yaw_donus, yaw_donus.calistir))
 
 	thrd_mpu9250.start()
@@ -58,7 +56,6 @@ def main():
 	thrd_komut.start()
 	#thrd_guc_yonetimi.start()
 	#thrd_otonom_ucus.start()
-	#thrd_motor.start()
 	#thrd_yaw_donus.start()
 	print("hazir")
 

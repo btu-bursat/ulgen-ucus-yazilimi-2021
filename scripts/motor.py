@@ -3,6 +3,7 @@
 
 import RPi.GPIO as GPIO
 from time import sleep
+import socket
 
 def main():
 	global MOTOR_MIN_PWM, MOTOR_MAX_PWM
@@ -32,49 +33,29 @@ def main():
 	motor_1.start(0)
 	motor_2.start(0)
 
+	host = "localhost"
+	port = 5000
+	ana_islem = socket.socket()
+	ana_islem.connect((host, port))
+
 	while True:
-		komut = "0"
-		with open("/home/pi/komut", "r") as f:
-			komut = f.read()
+		komut = ana_islem.recv(1024).decode()
 		if komut == "2":
 			tasiyiciyi_ayir()
 		elif komut == "3":
 			motor_calistir(20)
 		elif komut == "4":
-			motor_durdur()
-		with open("/home/pi/komut", "w") as f:
-			f.write("0")
+			motor_calistir(0)
 
 def tasiyiciyi_ayir():
-	print(AYRILMA_SIS_PIN)
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.HIGH)
 	sleep(3)
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.LOW)
 
 def motor_calistir(yuzde):
-	#MOTOR_PWM = MOTOR_MIN_PWM + ((yuzde / 100) * MOTOR_PWM_ARALIGI)
-	#motor_1.ChangeDutyCycle(MOTOR_PWM)
-	#motor_2.ChangeDutyCycle(MOTOR_PWM)
-	print("motor calisio")
-	motor_1.ChangeDutyCycle(18)
-	motor_2.ChangeDutyCycle(18)
-	sleep(1)
-	motor_1.ChangeDutyCycle(18.5)
-	motor_2.ChangeDutyCycle(18.5)
-	sleep(1)
-	motor_1.ChangeDutyCycle(18.7)
-	motor_2.ChangeDutyCycle(18.7)
-	sleep(1)
-	motor_1.ChangeDutyCycle(19)
-	motor_2.ChangeDutyCycle(19)
-	sleep(1)
-	motor_1.ChangeDutyCycle(19.5)
-	motor_2.ChangeDutyCycle(19.5)
-
-def motor_durdur():
-	print("motor durdu")
-	motor_1.ChangeDutyCycle(0)
-	motor_2.ChangeDutyCycle(0)
+	MOTOR_PWM = MOTOR_MIN_PWM + ((yuzde / 100) * MOTOR_PWM_ARALIGI)
+	motor_1.ChangeDutyCycle(MOTOR_PWM)
+	motor_2.ChangeDutyCycle(MOTOR_PWM)
 
 if __name__ == "__main__":
 	main()

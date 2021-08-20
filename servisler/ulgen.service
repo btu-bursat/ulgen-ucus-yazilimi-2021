@@ -1,0 +1,11 @@
+[Unit]
+Description="BTÜ Ülgen Uçuş Yazılımı, 2021"
+Requires=network.target
+
+[Service]
+Type=simple
+ExecStart=python3 /home/pi/main.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
