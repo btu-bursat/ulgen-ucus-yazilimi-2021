@@ -1,9 +1,10 @@
 #!/bin/bash
+# Ulgen, 2021
 
 # Servislerin kurulabilmesi icin root haklarina sahip olmak gerekiyor
 if [ "$EUID" -ne 0 ]
 then
-	echo "Programi soyle calistirin: sudo $0"
+	echo "Kurulumun yapilabilmesi icin yonetici hakkina sahip olmaniz gerekmekte! Bunu deneyin: sudo $0"
 	exit
 fi
 
