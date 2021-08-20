@@ -3,7 +3,6 @@
 
 import telemetri_verileri as tv
 import time
-from datetime import datetime
 
 def calistir():
 	while True:
@@ -42,6 +41,5 @@ def calistir():
 		if sure < 1:
 			time.sleep(1 - sure)
 
-# burasi gps sensorundeki saat verisi ile degisebilir
 def zaman_damgasi():
 	return str(tv.gun) + "/" + str(tv.ay) + "/" + str(tv.yil) + "," + str(tv.saat) + ":" + str(tv.dakika) + ":" + str(tv.saniye)
