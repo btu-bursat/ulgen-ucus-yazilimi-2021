@@ -30,23 +30,37 @@ def baslat():
 	with open("/home/pi/son_telemetri", "r") as f:
 		son_telemetri = f.read().split(",")
 
-	if len(son_telemetri) <= 1:
-		return
+	if len(son_telemetri) >= 18:
+		takim_no = int(son_telemetri[0]) # 39374
+		paket_numarasi = int(son_telemetri[1]) + 1
+		gun, ay, yil = 0, 0, 0
+		saat, dakika, saniye = 0, 0, 0
+		basinc = float(son_telemetri[4])
+		yukseklik = float(son_telemetri[5])
+		inis_hizi = float(son_telemetri[6])
+		sicaklik = float(son_telemetri[7])
+		pil_gerilimi = 12.1
+		gps_latitude, gps_longitude, gps_altitude = float(son_telemetri[9]), float(son_telemetri[10]), float(son_telemetri[11])
+		uydu_statusu = int(son_telemetri[12])
+		pitch, roll, yaw = float(son_telemetri[13]), float(son_telemetri[14]), float(son_telemetri[15])
+		donus_sayisi = int(son_telemetri[16])
+		video_aktarim_bilgisi = str(son_telemetri[17])
+	else:
+		takim_no = 39374
+		paket_numarasi = 0
+		gun, ay, yil = 0, 0, 0
+		saat, dakika, saniye = 0, 0, 0
+		basinc = 0
+		yukseklik = 0
+		inis_hizi = 0
+		sicaklik = 0
+		pil_gerilimi = 0
+		gps_latitude, gps_longitude, gps_altitude = 0, 0, 0
+		uydu_statusu = 1
+		pitch, roll, yaw = 0, 0, 0
+		donus_sayisi = 0
+		video_aktarim_bilgisi = "Hayir"
 
-	takim_no = 39374
-	paket_numarasi = int(son_telemetri[1]) + 1
-	gun, ay, yil = 0, 0, 0
-	saat, dakika, saniye = 0, 0, 0
-	basinc = float(son_telemetri[4])
-	yukseklik = float(son_telemetri[5])
-	inis_hizi = float(son_telemetri[6])
-	sicaklik = float(son_telemetri[7])
-	pil_gerilimi = 12.1
-	gps_latitude, gps_longitude, gps_altitude = float(son_telemetri[9]), float(son_telemetri[10]), float(son_telemetri[11])
-	uydu_statusu = int(son_telemetri[12])
-	pitch, roll, yaw = float(son_telemetri[13]), float(son_telemetri[14]), float(son_telemetri[15])
-	donus_sayisi = int(son_telemetri[16])
-	video_aktarim_bilgisi = str(son_telemetri[17])
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
 	# !!!!!!
 	# sifir noktasindaki basınc sd karta da yazılıp oradan okunmali
