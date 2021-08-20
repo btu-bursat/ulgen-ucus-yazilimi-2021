@@ -22,11 +22,11 @@ def thrd_fun(sinif_ismi, thread_fonksiyonu):
 			try:
 				thread_fonksiyonu()
 			except BaseException as e:
-				with open("/home/pi/log.txt", "a") as f:
+				with open("/home/pi/ulgen/log.txt", "a") as f:
 					f.write("{}, {}: {} sinifindan {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.\n".format(telemetri.zaman_damgasi(), tv.paket_numarasi, sinif_ismi.__name__, thread_fonksiyonu.__name__, e))
 				sleep(0.5)
 			else:
-				with open("/home/pi/log.txt", "a") as f:
+				with open("/home/pi/ulgen/log.txt", "a") as f:
 					f.write("{}, {}: {} sinifindan {} fonksiyonu basari ile sonlandi.\n".format(telemetri.zaman_damgasi(), tv.paket_numarasi, sinif_ismi.__name__, thread_fonksiyonu.__name__))
 				break
 	return hata_denetleyici

@@ -27,7 +27,7 @@ def baslat():
 	global gun, ay, yil
 	global motor_socket
 
-	with open("/home/pi/son_telemetri", "r") as f:
+	with open("/home/pi/ulgen/son_telemetri", "r") as f:
 		son_telemetri = f.read().split(",")
 
 	if len(son_telemetri) >= 18:

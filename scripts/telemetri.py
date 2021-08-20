@@ -29,10 +29,10 @@ def calistir():
 
 		tv.telemetri_paketi = tmp
 
-		with open("/home/pi/telemetri.txt", "a") as f:
+		with open("/home/pi/ulgen/telemetri.txt", "a") as f:
 			f.write(tv.telemetri_paketi + "\n")
 
-		with open("/home/pi/son_telemetri", "w") as f:
+		with open("/home/pi/ulgen/son_telemetri", "w") as f:
 			f.write(tv.telemetri_paketi)
 
 		tv.paket_numarasi = int(tv.paket_numarasi) + 1

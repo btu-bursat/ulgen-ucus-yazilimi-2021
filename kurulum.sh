@@ -16,7 +16,8 @@ pip3 install FaBo9Axis-MPU9250-python3 adafruit-circuitpython-bmp280
 
 # Butun kodlar /home/pi/ dizine tasinir
 echo "Kodlar kopyalaniyor..."
-cp scripts/* /home/pi/
+mkdir -p /home/pi/ulgen/scripts/
+cp scripts/* /home/pi/ulgen/scripts/
 
 # Servislerin yuklenmesi
 echo "Servisler yukleniyor..."

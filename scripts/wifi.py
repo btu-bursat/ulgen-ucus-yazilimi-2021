@@ -26,7 +26,7 @@ def calistir():
 			video = bytes()
 			for i in range(parca + 1):
 				video += conn.recv(1024)
-			with open("/home/pi/video.mp4", "wb") as f:
+			with open("/home/pi/ulgen/video.mp4", "wb") as f:
 				f.write(video)
 
 		if tv.komut != "0":
