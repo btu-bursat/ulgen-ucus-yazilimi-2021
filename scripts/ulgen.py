@@ -46,13 +46,14 @@ def main():
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
 	thrd_gps.start()
-	#thrd_pil_yuzde.start()
+	thrd_pil_yuzde.start()
 	thrd_hiz.start()
 	thrd_telemetri.start()
 	thrd_wifi.start()
-	#thrd_guc_yonetimi.start()
-	#thrd_otonom_ucus.start()
-	#thrd_yaw_donus.start()
+	thrd_guc_yonetimi.start()
+	thrd_otonom_ucus.start()
+	thrd_yaw_donus.start()
+
 	log.logla("Ana yazilim calismaya basladi.")
 
 if __name__ == "__main__":
