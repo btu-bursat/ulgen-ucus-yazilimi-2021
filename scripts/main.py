@@ -11,10 +11,10 @@ import pil_yuzde
 import hiz
 import telemetri
 import wifi
-import komut
 import guc_yonetimi
 import otonom_ucus
 import yaw_donus
+import log
 
 def thrd_fun(sinif_ismi, thread_fonksiyonu):
 	def hata_denetleyici():
@@ -22,12 +22,10 @@ def thrd_fun(sinif_ismi, thread_fonksiyonu):
 			try:
 				thread_fonksiyonu()
 			except BaseException as e:
-				with open("/home/pi/ulgen/log.txt", "a") as f:
-					f.write("{}, {}: {} sinifindan {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.\n".format(telemetri.zaman_damgasi(), tv.paket_numarasi, sinif_ismi.__name__, thread_fonksiyonu.__name__, e))
+				log.logla("{} sinifindan {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.".format(sinif_ismi.__name__, thread_fonksiyonu.__name__, e))
 				sleep(0.5)
 			else:
-				with open("/home/pi/ulgen/log.txt", "a") as f:
-					f.write("{}, {}: {} sinifindan {} fonksiyonu basari ile sonlandi.\n".format(telemetri.zaman_damgasi(), tv.paket_numarasi, sinif_ismi.__name__, thread_fonksiyonu.__name__))
+				log.logla("{} sinifindan {} fonksiyonu basari ile sonlandi.".format(sinif_ismi.__name__, thread_fonksiyonu.__name__))
 				break
 	return hata_denetleyici
 
@@ -41,7 +39,6 @@ def main():
 	thrd_hiz = Thread(target=thrd_fun(hiz, hiz.calistir))
 	thrd_telemetri = Thread(target=thrd_fun(telemetri, telemetri.calistir))
 	thrd_wifi = Thread(target=thrd_fun(wifi, wifi.calistir))
-	thrd_komut = Thread(target=thrd_fun(komut, komut.calistir))
 	thrd_guc_yonetimi = Thread(target=thrd_fun(guc_yonetimi, guc_yonetimi.calistir))
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus, otonom_ucus.calistir))
 	thrd_yaw_donus = Thread(target=thrd_fun(yaw_donus, yaw_donus.calistir))
@@ -53,11 +50,10 @@ def main():
 	thrd_hiz.start()
 	thrd_telemetri.start()
 	thrd_wifi.start()
-	thrd_komut.start()
 	#thrd_guc_yonetimi.start()
 	#thrd_otonom_ucus.start()
 	#thrd_yaw_donus.start()
-	print("hazir")
+	log.logla("Ana yazilim calismaya basladi.")
 
 if __name__ == "__main__":
 	main()

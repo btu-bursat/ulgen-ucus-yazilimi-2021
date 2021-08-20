@@ -18,7 +18,13 @@ def calistir():
 		if not tv.komut:
 			tv.komut = "0"
 
-		if tv.komut[0] == "5":
+		if tv.komut == "1":
+			tv.sifir_noktasi = tv.basinc
+			tv.paket_numarasi = 1
+			tv.uydu_statusu = 1
+			with open("/home/pi/ulgen/sifir_noktasi", "w") as f:
+				f.write(tv.sifir_noktasi)
+		elif tv.komut[0] == "5":
 			boyut = int(tv.komut.split(" ")[1])
 			parca = boyut // 1024
 			if boyut % 1024 != 0:
