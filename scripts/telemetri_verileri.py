@@ -63,8 +63,8 @@ def baslat():
 
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
 	sifir_noktasi = 1013.25
-	with open("/home/pi/ulgen/sifir_noktasi", "r") as f:
-		sifir_noktasi = f.read()
+	#with open("/home/pi/ulgen/sifir_noktasi", "r") as f:
+	#	sifir_noktasi = f.read()
 	komut = "0"
 	telemetri_paketi = ""
 	max_gerilim, min_gerilim = 4.2, 3.6

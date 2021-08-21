@@ -35,8 +35,13 @@ def main():
 
 	host = "localhost"
 	port = 5000
-	ana_islem = socket.socket()
-	ana_islem.connect((host, port))
+	while True:
+		try:
+			ana_islem = socket.socket()
+			ana_islem.connect((host, port))
+			break
+		except:
+			sleep(0.5)
 
 	while True:
 		komut = ana_islem.recv(1024).decode()

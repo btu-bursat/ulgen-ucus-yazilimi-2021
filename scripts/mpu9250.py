@@ -18,7 +18,7 @@ def calistir():
 		tv.ivme_z = ivme['z']
 
 		#tv.roll = gyro['x']
-		#tv.pitch = gyro()['y']
+		#tv.pitch = gyro['y']
 		tv.roll = np.arctan(tv.ivme_x/(math.sqrt((tv.ivme_y ** 2) + (tv.ivme_z ** 2)))) * 120
 		tv.pitch = np.arctan(tv.ivme_y / (math.sqrt((tv.ivme_x ** 2) + (tv.ivme_z ** 2)))) * 120
-		tv.yaw = gyro()['z']
+		tv.yaw = gyro['z']
