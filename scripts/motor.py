@@ -39,8 +39,10 @@ def main():
 		try:
 			ana_islem = socket.socket()
 			ana_islem.connect((host, port))
+			logla("Motorlar calismaya basladi")
 			break
-		except:
+		except BaseException as e:
+			logla("Motorlar baglantiyi bekliyor: {}".format(e))
 			sleep(0.5)
 
 	while True:
@@ -61,6 +63,10 @@ def motor_calistir(yuzde):
 	MOTOR_PWM = MOTOR_MIN_PWM + ((yuzde / 100) * MOTOR_PWM_ARALIGI)
 	motor_1.ChangeDutyCycle(MOTOR_PWM)
 	motor_2.ChangeDutyCycle(MOTOR_PWM)
+
+def logla(mesaj):
+	with open("/home/pi/ulgen/log.txt", "a") as f:
+		f.write(mesaj + "\n")
 
 if __name__ == "__main__":
 	main()
