@@ -15,7 +15,7 @@ def calistir():
 
 		tv.ivme_x = ivme['x']
 		tv.ivme_y = ivme['y']
-		tv.ivme_z = ivme['z']
+		tv.ivme_z = ivme['z'] - 1.05 # sensorun hata payi
 
 		#tv.roll = gyro['x']
 		#tv.pitch = gyro['y']
