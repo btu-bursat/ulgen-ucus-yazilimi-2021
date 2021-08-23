@@ -55,6 +55,7 @@ def main():
 	thrd_yaw_donus.start()
 
 	log.logla("Ana yazilim calismaya basladi.")
+	print("hazir")
 
 if __name__ == "__main__":
 	main()

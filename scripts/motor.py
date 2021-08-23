@@ -30,8 +30,18 @@ def main():
 	motor_1 = GPIO.PWM(MOTOR_PIN_1, 50)
 	motor_2 = GPIO.PWM(MOTOR_PIN_2, 50)
 
-	motor_1.start(0)
-	motor_2.start(0)
+	# esclerin max pwmi ve min pwmi ogrenmesi icin kalibre ediliyor
+	# elimizdeki escleri kalibre etmek icin 20 mslik pulse width kullaniyoruz
+	# max motor hizi icin %10 yani 2 mslik duty cycle
+	# min motor hizi icin de %5 yani 1 mslik duty cycle kullaniyoruz
+	motor_1.start(10)
+	motor_2.start(10)
+	sleep(5)
+	motor_1.ChangeDutyCycle(5)
+	motor_2.ChangeDutyCycle(5)
+	sleep(5)
+	motor_1.ChangeDutyCycle(0)
+	motor_2.ChangeDutyCycle(0)
 
 	host = "localhost"
 	port = 5000

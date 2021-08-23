@@ -14,7 +14,7 @@ def calistir():
 
 	while True:
 		tv.komut = conn.recv(1024).decode()
-
+		print("gelen:", tv.komut)
 		if not tv.komut:
 			tv.komut = "0"
 
