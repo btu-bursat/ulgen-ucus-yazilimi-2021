@@ -15,6 +15,8 @@ import guc_yonetimi
 import otonom_ucus
 import yaw_donus
 import log
+#import mpu6050
+#import bmp180_2
 
 def thrd_fun(sinif_ismi, thread_fonksiyonu):
 	def hata_denetleyici():
@@ -43,6 +45,9 @@ def main():
 	thrd_otonom_ucus = Thread(target=thrd_fun(otonom_ucus, otonom_ucus.calistir))
 	thrd_yaw_donus = Thread(target=thrd_fun(yaw_donus, yaw_donus.calistir))
 
+	#thrd_mpu6050 = Thread(target=thrd_fun(mpu6050, mpu6050.calistir))
+	#thrd_bmp180_2 = Thread(target=thrd_fun(bmp180_2, bmp180_2.calistir))
+
 	thrd_mpu9250.start()
 	thrd_bmp180.start()
 	thrd_gps.start()
@@ -53,6 +58,9 @@ def main():
 	thrd_guc_yonetimi.start()
 	thrd_otonom_ucus.start()
 	thrd_yaw_donus.start()
+
+	#thrd_mpu6050.start()
+	#thrd_bmp180_2.start()
 
 	log.logla("Ana yazilim calismaya basladi.")
 
