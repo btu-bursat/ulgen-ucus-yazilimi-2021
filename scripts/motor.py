@@ -13,7 +13,7 @@ def main():
 	global AYRILMA_SIS_PIN
 	global motor_1, motor_2
 
-	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 18.5, 22
+	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 5, 10
 	MOTOR_PWM_ARALIGI = MOTOR_MAX_PWM - MOTOR_MIN_PWM
 	MOTOR_PWM = 0
 	MOTOR_PIN_1, MOTOR_PIN_2 = 32, 33
@@ -53,14 +53,14 @@ def main():
 			break
 		except BaseException as e:
 			logla("Motorlar baglantiyi bekliyor: {}".format(e))
-			sleep(0.5)
+			sleep(1)
 
 	while True:
 		komut = ana_islem.recv(1024).decode()
 		if komut == "2":
 			tasiyiciyi_ayir()
 		elif komut == "3":
-			motor_calistir(20)
+			motor_calistir(30)
 		elif komut == "4":
 			motor_calistir(0)
 

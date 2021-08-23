@@ -5,6 +5,7 @@ import socket
 from time import sleep
 
 def calistir():
+	# Yer istasyonunun baglanabilmesi icin socket acilir
 	host = "0.0.0.0"
 	port = 5003
 	uydu_socket = socket.socket()
@@ -14,16 +15,17 @@ def calistir():
 
 	while True:
 		tv.komut = conn.recv(1024).decode()
-		print("gelen:", tv.komut)
 		if not tv.komut:
 			tv.komut = "0"
 
+		# Kalibre et komutu
 		if tv.komut == "1":
 			tv.sifir_noktasi = tv.basinc
 			tv.paket_numarasi = 1
 			tv.uydu_statusu = 1
 			with open("/home/pi/ulgen/sifir_noktasi", "w") as f:
 				f.write(tv.sifir_noktasi)
+		# Yer istasyonundan uyduya video aktarimi komutu
 		elif tv.komut[0] == "5":
 			boyut = int(tv.komut.split(" ")[1])
 			parca = boyut // 1024
@@ -35,7 +37,8 @@ def calistir():
 			with open("/home/pi/ulgen/video.mp4", "wb") as f:
 				f.write(video)
 
+		# komut 0 degil ise motorlara bilgi ver
 		if tv.komut != "0":
 			tv.motor_socket.send(tv.komut.encode())
-			
+
 		conn.send(tv.telemetri_paketi.encode())

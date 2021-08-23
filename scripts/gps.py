@@ -9,6 +9,8 @@ def calistir():
 	with serial.Serial('/dev/ttyS0', 9600) as ser:
 		while True:
 			gps_verisi = ser.readline().strip().decode()
+			# GNRMC verisinden zaman ve gps verisi alinir
+			# Fakat yukseklik verisini bulamadim
 			if gps_verisi[:6] == "$GNRMC":
 				gps = gps_verisi.split(",")
 				if gps[1] != "":
