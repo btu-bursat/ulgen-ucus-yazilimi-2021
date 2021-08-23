@@ -16,7 +16,7 @@ def main():
 	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 5, 10
 	MOTOR_PWM_ARALIGI = MOTOR_MAX_PWM - MOTOR_MIN_PWM
 	MOTOR_PWM = 0
-	MOTOR_PIN_1, MOTOR_PIN_2 = 32, 33
+	MOTOR_PIN_1, MOTOR_PIN_2 = 40, 38
 	AYRILMA_SIS_PIN = 11
 
 	GPIO.setwarnings(False)
@@ -45,15 +45,15 @@ def main():
 
 	host = "localhost"
 	port = 5000
+	ana_islem = socket.socket()
+
 	while True:
 		try:
-			ana_islem = socket.socket()
 			ana_islem.connect((host, port))
 			logla("Motorlar calismaya basladi")
 			break
 		except BaseException as e:
-			logla("Motorlar baglantiyi bekliyor: {}".format(e))
-			sleep(1)
+			sleep(0.1)
 
 	while True:
 		komut = ana_islem.recv(1024).decode()

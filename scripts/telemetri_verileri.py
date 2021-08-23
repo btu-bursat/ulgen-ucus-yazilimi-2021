@@ -25,7 +25,7 @@ def baslat():
 	global pil_yuzde
 	global saat, dakika, saniye
 	global gun, ay, yil
-	global motor_socket
+	global motor_socket, motor_con
 
 	with open("/home/pi/ulgen/son_telemetri", "r") as f:
 		son_telemetri = f.read().split(",")
@@ -77,4 +77,4 @@ def baslat():
 	motor_socket = socket.socket()
 	motor_socket.bind((host, port))
 	motor_socket.listen(1)
-	conn, addr = motor_socket.accept()
+	motor_con, addr = motor_socket.accept()
