@@ -27,8 +27,11 @@ def baslat():
 	global gun, ay, yil
 	global motor_socket, motor_con
 
-	with open("/home/pi/ulgen/son_telemetri", "r") as f:
+	try:
+		open("/home/pi/ulgen/son_telemetri", "r")
 		son_telemetri = f.read().split(",")
+	except:
+		son_telemetri = list()
 
 	if len(son_telemetri) >= 18:
 		takim_no = int(son_telemetri[0]) # 39374
@@ -63,8 +66,11 @@ def baslat():
 
 	ivme_x, ivme_y, ivme_z = 0, 0, 0
 	sifir_noktasi = 1013.25
-	#with open("/home/pi/ulgen/sifir_noktasi", "r") as f:
-	#	sifir_noktasi = f.read()
+	try:
+		f = open("/home/pi/ulgen/sifir_noktasi", "r")
+		sifir_noktasi = f.read()
+	except:
+		sifir_noktasi = 1013.25
 	komut = "0"
 	telemetri_paketi = ""
 	max_gerilim, min_gerilim = 4.2, 3.6

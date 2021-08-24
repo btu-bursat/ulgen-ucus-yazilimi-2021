@@ -25,6 +25,7 @@ def calistir():
 			tv.uydu_statusu = 1
 			with open("/home/pi/ulgen/sifir_noktasi", "w") as f:
 				f.write(str(tv.sifir_noktasi))
+
 		# Yer istasyonundan uyduya video aktarimi komutu
 		elif tv.komut[0] == "5":
 			boyut = int(tv.komut.split(" ")[1])
@@ -36,6 +37,7 @@ def calistir():
 				video += conn.recv(1024)
 			with open("/home/pi/ulgen/video.mp4", "wb") as f:
 				f.write(video)
+		
 		# komut 0 degil ise motorlara bilgi ver
 		if tv.komut != "0":
 			tv.motor_con.send(tv.komut.encode())
