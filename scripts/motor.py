@@ -34,11 +34,11 @@ def main():
 	# elimizdeki escleri kalibre etmek icin 20 mslik pulse width kullaniyoruz
 	# max motor hizi icin %10 yani 2 mslik duty cycle
 	# min motor hizi icin de %5 yani 1 mslik duty cycle kullaniyoruz
-	motor_1.start(10)
-	motor_2.start(10)
+	motor_1.start(MOTOR_MAX_PWM)
+	motor_2.start(MOTOR_MAX_PWM)
 	sleep(5)
-	motor_1.ChangeDutyCycle(5)
-	motor_2.ChangeDutyCycle(5)
+	motor_1.ChangeDutyCycle(MOTOR_MIN_PWM)
+	motor_2.ChangeDutyCycle(MOTOR_MIN_PWM)
 	sleep(5)
 	motor_1.ChangeDutyCycle(0)
 	motor_2.ChangeDutyCycle(0)
