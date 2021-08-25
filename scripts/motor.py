@@ -8,6 +8,7 @@ import socket
 def main():
 	global MOTOR_MIN_PWM, MOTOR_MAX_PWM
 	global MOTOR_PWM_ARALIGI
+	global MOTOR_SIFIR_PWM
 	global MOTOR_PWM
 	global MOTOR_PIN_1, MOTOR_PIN_2
 	global AYRILMA_SIS_PIN
@@ -15,6 +16,7 @@ def main():
 
 	MOTOR_MIN_PWM, MOTOR_MAX_PWM = 5, 10
 	MOTOR_PWM_ARALIGI = MOTOR_MAX_PWM - MOTOR_MIN_PWM
+	MOTOR_SIFIR_PWM = 4.5
 	MOTOR_PWM = 0
 	MOTOR_PIN_1, MOTOR_PIN_2 = 40, 38
 	AYRILMA_SIS_PIN = 11
@@ -36,12 +38,12 @@ def main():
 	# min motor hizi icin de %5 yani 1 mslik duty cycle kullaniyoruz
 	motor_1.start(MOTOR_MAX_PWM)
 	motor_2.start(MOTOR_MAX_PWM)
-	sleep(5)
+	sleep(10)
 	motor_1.ChangeDutyCycle(MOTOR_MIN_PWM)
 	motor_2.ChangeDutyCycle(MOTOR_MIN_PWM)
-	sleep(5)
-	motor_1.ChangeDutyCycle(0)
-	motor_2.ChangeDutyCycle(0)
+	sleep(10)
+	motor_1.ChangeDutyCycle(MOTOR_SIFIR_PWM)
+	motor_2.ChangeDutyCycle(MOTOR_SIFIR_PWM)
 
 	host = "localhost"
 	port = 5000
@@ -60,9 +62,9 @@ def main():
 		if komut == "2":
 			tasiyiciyi_ayir()
 		elif komut == "3":
-			motor_calistir(30)
+			motor_calistir(10)
 		elif komut == "4":
-			motor_calistir(0)
+			motor_durdur()
 
 def tasiyiciyi_ayir():
 	GPIO.output(AYRILMA_SIS_PIN, GPIO.HIGH)
@@ -71,6 +73,11 @@ def tasiyiciyi_ayir():
 
 def motor_calistir(yuzde):
 	MOTOR_PWM = MOTOR_MIN_PWM + ((yuzde / 100) * MOTOR_PWM_ARALIGI)
+	motor_1.ChangeDutyCycle(MOTOR_PWM)
+	motor_2.ChangeDutyCycle(MOTOR_PWM)
+
+def motor_durdur():
+	MOTOR_PWM = MOTOR_SIFIR_PWM
 	motor_1.ChangeDutyCycle(MOTOR_PWM)
 	motor_2.ChangeDutyCycle(MOTOR_PWM)
 

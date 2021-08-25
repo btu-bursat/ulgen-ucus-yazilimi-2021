@@ -1,11 +1,11 @@
 [Unit]
 Description="BTÜ Ülgen Uçuş Yazılımı, 2021"
-Requires=network.target
+Requires=network.target motor.service
 
 [Service]
 Type=simple
 ExecStart=python3 /home/pi/ulgen/ulgen.py
-Restart=on-failure
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
