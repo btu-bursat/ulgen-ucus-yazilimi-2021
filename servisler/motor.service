@@ -4,8 +4,8 @@ Requires=network.target
 
 [Service]
 Type=simple
-ExecStart=python3 /home/pi/ulgen/motor.py
+ExecStart=python3 /home/pi/ulgen/scripts/motor.py
 Restart=always
 
 [Install]
-WantedBy=multi-user.target ulgen.service
+WantedBy=multi-user.target

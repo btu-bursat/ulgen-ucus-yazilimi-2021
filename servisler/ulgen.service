@@ -4,7 +4,7 @@ Requires=network.target motor.service
 
 [Service]
 Type=simple
-ExecStart=python3 /home/pi/ulgen/ulgen.py
+ExecStart=python3 /home/pi/ulgen/scripts/ulgen.py
 Restart=always
 
 [Install]
