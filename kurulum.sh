@@ -10,9 +10,9 @@ fi
 
 # Sistemin guncellenmesi ve gerekli yazilimlarin kurulmasi
 echo "Gerekli paketler yukleniyor..."
-apt update
-apt install -y python3-pip
-pip3 install FaBo9Axis-MPU9250-python3 adafruit-circuitpython-bmp280
+#apt update
+#apt install -y python3-pip
+#pip3 install FaBo9Axis-MPU9250-python3 adafruit-circuitpython-bmp280
 
 # Butun kodlar /home/pi/ dizine tasinir
 echo "Kodlar kopyalaniyor..."
@@ -27,9 +27,9 @@ cp servisler/* /etc/systemd/system/
 systemctl daemon-reload
 
 systemctl enable ulgen
-systemctl start ulgen
-
 systemctl enable motor
+
+systemctl start ulgen
 systemctl start motor
 
 echo "Kurulum bitti"
