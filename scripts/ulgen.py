@@ -37,7 +37,7 @@ def main():
 
 	# Thread'ler ayarlanir
 	thrd_mpu9250 = Thread(target = thrd_fun(mpu9250, mpu9250.calistir))
-	thrd_bmp180 = Thread(target = thrd_fun(bmp280, bmp180.calistir))
+	thrd_bmp280 = Thread(target = thrd_fun(bmp280, bmp280.calistir))
 	thrd_gps = Thread(target = thrd_fun(gps, gps.calistir))
 	thrd_pil_yuzde = Thread(target = thrd_fun(pil_yuzde, pil_yuzde.calistir))
 	thrd_hiz = Thread(target = thrd_fun(hiz, hiz.calistir))
