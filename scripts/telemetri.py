@@ -8,6 +8,7 @@ def calistir():
 	while True:
 		baslangic = time.time()
 
+		# Gecici degiskende veriler toplanir
 		tmp  = ""
 		tmp += str(tv.takim_no) + ","
 		tmp += str(tv.paket_numarasi) + ","
@@ -27,6 +28,7 @@ def calistir():
 		tmp += str(tv.donus_sayisi) + ","
 		tmp += str(tv.video_aktarim_bilgisi)
 
+		# Gecici degiskende toplanan veriler ana degiskene tek hamlede yazilir
 		tv.telemetri_paketi = tmp
 
 		with open("/home/pi/ulgen/telemetri.txt", "a") as f:
@@ -37,11 +39,13 @@ def calistir():
 
 		tv.paket_numarasi = int(tv.paket_numarasi) + 1
 
-		# Yer istasyonuna saniyede 1 (1 hz) kez telemetri aktarimi olmasini garanti altina al
-		# Eger veri aktarimi 1 saniyeden uzun surdu ise daha fazla bekleme 
+		# Yer istasyonuna saniyede 1 (1 hz) kez telemetri aktarimi olmasini
+		# garanti altina al. Eger veri aktarimi 1 saniyeden uzun surdu ise
+		# daha fazla bekleme.
 		sure = time.time() - baslangic
 		if sure < 1:
 			time.sleep(1 - sure)
 
+# "Gun/Ay/Yil,Saat:Dakika:Saniye" seklinde zaman damgasi uretir
 def zaman_damgasi():
 	return str(tv.gun) + "/" + str(tv.ay) + "/" + str(tv.yil) + "," + str(tv.saat) + ":" + str(tv.dakika) + ":" + str(tv.saniye)

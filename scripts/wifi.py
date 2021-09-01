@@ -3,9 +3,10 @@
 import telemetri_verileri as tv
 import socket
 from time import sleep
+import log
 
 def calistir():
-	# Yer istasyonunun baglanabilmesi icin socket acilir
+	# Yer istasyonu ile baglanti kurmak icin socket kutuphanesi kullanilir
 	host = "0.0.0.0"
 	port = 5003
 	uydu_socket = socket.socket()
@@ -21,10 +22,13 @@ def calistir():
 		# Kalibre et komutu
 		if tv.komut == "1":
 			tv.sifir_noktasi = tv.basinc
+			try:
+				f = open("/home/pi/ulgen/sifir_noktasi", "w")
+				f.write(str(tv.sifir_noktasi))
+			except:
+				log.logla("Sifir noktasi SD karta yazilamadi.")
 			tv.paket_numarasi = 1
 			tv.uydu_statusu = 1
-			with open("/home/pi/ulgen/sifir_noktasi", "w") as f:
-				f.write(str(tv.sifir_noktasi))
 
 		# Yer istasyonundan uyduya video aktarimi komutu
 		elif tv.komut[0] == "5":
@@ -42,4 +46,5 @@ def calistir():
 		if tv.komut != "0":
 			tv.motor_con.send(tv.komut.encode())
 
+		# Telemetri paketini yer istasyonuna gonder
 		conn.send(tv.telemetri_paketi.encode())

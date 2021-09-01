@@ -28,11 +28,12 @@ def baslat():
 	global motor_socket, motor_con
 
 	try:
-		open("/home/pi/ulgen/son_telemetri", "r")
+		f = open("/home/pi/ulgen/son_telemetri", "r")
 		son_telemetri = f.read().split(",")
 	except:
 		son_telemetri = list()
 
+	# Son telemetri verisi var ise oradan basla
 	if len(son_telemetri) >= 18:
 		takim_no = int(son_telemetri[0]) # 39374
 		paket_numarasi = int(son_telemetri[1]) + 1
@@ -48,6 +49,7 @@ def baslat():
 		pitch, roll, yaw = float(son_telemetri[13]), float(son_telemetri[14]), float(son_telemetri[15])
 		donus_sayisi = int(son_telemetri[16])
 		video_aktarim_bilgisi = str(son_telemetri[17])
+	# Son telemetri verisi yok ise de her seyi sifirdan al
 	else:
 		takim_no = 39374
 		paket_numarasi = 0
@@ -64,20 +66,22 @@ def baslat():
 		donus_sayisi = 0
 		video_aktarim_bilgisi = "Hayir"
 
-	ivme_x, ivme_y, ivme_z = 0, 0, 0
+	# Yukseklik verisini hesaplamak icin sifir noktasini al
 	sifir_noktasi = 1013.25
 	try:
 		f = open("/home/pi/ulgen/sifir_noktasi", "r")
 		sifir_noktasi = f.read()
 	except:
 		sifir_noktasi = 1013.25
+
+	ivme_x, ivme_y, ivme_z = 0, 0, 0
 	komut = "0"
 	telemetri_paketi = ""
 	max_gerilim, min_gerilim = 4.2, 3.6
 	gerilim_araligi = max_gerilim - min_gerilim
 	pil_yuzde = 100
 
-	# motor kontrolu icin socket kutuphanesi kullanilarak haberlesilecek
+	# Motor kontrolu icin socket kutuphanesi kullanilarak haberlesilecek
 	host = "0.0.0.0"
 	port = 5000
 	motor_socket = socket.socket()
