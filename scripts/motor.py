@@ -30,6 +30,7 @@ def calistir():
 	# min motor hizi icin de %5 yani 1 mslik duty cycle kullaniyoruz
 	motor_1.duty_cycle, motor_2.duty_cycle = MOTOR_MIN_PWM, MOTOR_MIN_PWM
 	ayrilma.duty_cycle = 0
+	sleep(10)
 
 	while True:
 		if tv.komut == "2":

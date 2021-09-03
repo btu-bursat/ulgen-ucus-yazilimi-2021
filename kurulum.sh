@@ -23,16 +23,12 @@ mkdir -p /home/pi/ulgen/scripts/
 cp scripts/* /home/pi/ulgen/scripts/
 
 # Servislerin yuklenmesi
-echo "Servisler yukleniyor..."
-cp servisler/* /etc/systemd/system/
+echo "Servis yukleniyor..."
+cp ulgen.service /etc/systemd/system/ulgen.service
 
 # Servislerin etkinlestirilmesi
 systemctl daemon-reload
-
 systemctl enable ulgen
-systemctl enable motor
-
 systemctl start ulgen
-systemctl start motor
 
 echo "Kurulum bitti"

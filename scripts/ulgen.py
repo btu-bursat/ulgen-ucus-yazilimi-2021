@@ -19,16 +19,17 @@ import motor
 
 # Bu fonksiyon thread fonksiyonlarinda yasanacak herhangi bir sikintida hatayi
 # yakalayip SD karta hatayi yazar ve fonksiyonu bastan baslatir
-def thrd_fun(sinif_ismi, thread_fonksiyonu):
+def thrd_fun(sinif_ismi):
 	def hata_denetleyici():
+		bekleme_suresi = 0.5
 		while True:
 			try:
-				thread_fonksiyonu()
+				sinif_ismi.calistir()
 			except BaseException as e:
-				log.logla("{} sinifindan {} fonksiyonu '{}' hata mesaji ile coktu, yeniden baslatiliyor.".format(sinif_ismi.__name__, thread_fonksiyonu.__name__, e))
-				sleep(0.5)
+				log.logla("{} '{}' hata mesaji ile coktu, {} saniye icinde yeniden baslatiliyor.".format(sinif_ismi.__name__, e, bekleme_suresi))
+				sleep(bekleme_suresi)
 			else:
-				log.logla("{} sinifindan {} fonksiyonu basari ile sonlandi.".format(sinif_ismi.__name__, thread_fonksiyonu.__name__))
+				log.logla("{} basari ile sonlandi.".format(sinif_ismi.__name__))
 				break
 	return hata_denetleyici
 
@@ -37,17 +38,17 @@ def main():
 	tv.baslat()
 
 	# Thread'ler ayarlanir
-	thrd_mpu9250 = Thread(target = thrd_fun(mpu9250, mpu9250.calistir))
-	thrd_bmp280 = Thread(target = thrd_fun(bmp280, bmp280.calistir))
-	thrd_gps = Thread(target = thrd_fun(gps, gps.calistir))
-	thrd_pil_yuzde = Thread(target = thrd_fun(pil_yuzde, pil_yuzde.calistir))
-	thrd_hiz = Thread(target = thrd_fun(hiz, hiz.calistir))
-	thrd_telemetri = Thread(target = thrd_fun(telemetri, telemetri.calistir))
-	thrd_wifi = Thread(target = thrd_fun(wifi, wifi.calistir))
-	thrd_guc_yonetimi = Thread(target = thrd_fun(guc_yonetimi, guc_yonetimi.calistir))
-	thrd_otonom_ucus = Thread(target = thrd_fun(otonom_ucus, otonom_ucus.calistir))
-	thrd_yaw_donus = Thread(target = thrd_fun(yaw_donus, yaw_donus.calistir))
-	thrd_motor = Thread(target = thrd_fun(motor, motor.calistir))
+	thrd_mpu9250 = Thread(target = thrd_fun(mpu9250))
+	thrd_bmp280 = Thread(target = thrd_fun(bmp280))
+	thrd_gps = Thread(target = thrd_fun(gps))
+	thrd_pil_yuzde = Thread(target = thrd_fun(pil_yuzde))
+	thrd_hiz = Thread(target = thrd_fun(hiz))
+	thrd_telemetri = Thread(target = thrd_fun(telemetri))
+	thrd_wifi = Thread(target = thrd_fun(wifi))
+	thrd_guc_yonetimi = Thread(target = thrd_fun(guc_yonetimi))
+	thrd_otonom_ucus = Thread(target = thrd_fun(otonom_ucus))
+	thrd_yaw_donus = Thread(target = thrd_fun(yaw_donus))
+	thrd_motor = Thread(target = thrd_fun(motor))
 
 	# Thread'ler baslatilir
 	thrd_mpu9250.start()
@@ -62,7 +63,7 @@ def main():
 	thrd_yaw_donus.start()
 	thrd_motor.start()
 
-	log.logla("Ana yazilim calismaya basladi.")
+	log.logla("Butun thread'lere baslangic verildi.")
 
 if __name__ == "__main__":
 	main()
