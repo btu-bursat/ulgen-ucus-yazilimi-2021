@@ -25,7 +25,6 @@ def baslat():
 	global pil_yuzde
 	global saat, dakika, saniye
 	global gun, ay, yil
-	global motor_socket, motor_con
 
 	try:
 		f = open("/home/pi/ulgen/son_telemetri", "r")
@@ -80,11 +79,3 @@ def baslat():
 	max_gerilim, min_gerilim = 4.2, 3.6
 	gerilim_araligi = max_gerilim - min_gerilim
 	pil_yuzde = 100
-
-	# Motor kontrolu icin socket kutuphanesi kullanilarak haberlesilecek
-	host = "0.0.0.0"
-	port = 5000
-	motor_socket = socket.socket()
-	motor_socket.bind((host, port))
-	motor_socket.listen(1)
-	motor_con, addr = motor_socket.accept()

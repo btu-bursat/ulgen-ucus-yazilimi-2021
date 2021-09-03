@@ -15,6 +15,7 @@ import guc_yonetimi
 import otonom_ucus
 import yaw_donus
 import log
+import motor
 
 # Bu fonksiyon thread fonksiyonlarinda yasanacak herhangi bir sikintida hatayi
 # yakalayip SD karta hatayi yazar ve fonksiyonu bastan baslatir
@@ -46,6 +47,7 @@ def main():
 	thrd_guc_yonetimi = Thread(target = thrd_fun(guc_yonetimi, guc_yonetimi.calistir))
 	thrd_otonom_ucus = Thread(target = thrd_fun(otonom_ucus, otonom_ucus.calistir))
 	thrd_yaw_donus = Thread(target = thrd_fun(yaw_donus, yaw_donus.calistir))
+	thrd_motor = Thread(target = thrd_fun(motor, motor.calistir))
 
 	# Thread'ler baslatilir
 	thrd_mpu9250.start()
@@ -58,6 +60,7 @@ def main():
 	thrd_guc_yonetimi.start()
 	thrd_otonom_ucus.start()
 	thrd_yaw_donus.start()
+	thrd_motor.start()
 
 	log.logla("Ana yazilim calismaya basladi.")
 

@@ -12,7 +12,10 @@ fi
 echo "Gerekli paketler yukleniyor..."
 #apt update
 #apt install -y python3-pip
-#pip3 install FaBo9Axis-MPU9250-python3 adafruit-circuitpython-bmp280
+#pip3 install FaBo9Axis-MPU9250-python3
+#pip3 install adafruit-circuitpython-bmp280
+#pip3 install adafruit-circuitpython-pca9685
+#pip3 install adafruit-circuitpython-servokit
 
 # Butun kodlar /home/pi/ dizine tasinir
 echo "Kodlar kopyalaniyor..."

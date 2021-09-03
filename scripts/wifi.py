@@ -41,10 +41,6 @@ def calistir():
 				video += conn.recv(1024)
 			with open("/home/pi/ulgen/video.mp4", "wb") as f:
 				f.write(video)
-		
-		# komut 0 degil ise motorlara bilgi ver
-		if tv.komut != "0":
-			tv.motor_con.send(tv.komut.encode())
 
 		# Telemetri paketini yer istasyonuna gonder
 		conn.send(tv.telemetri_paketi.encode())
