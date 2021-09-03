@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # Ulgen, 2021
 
-import socket
-
 def baslat():
 	global takim_no
 	global paket_numarasi

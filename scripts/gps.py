@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # Ulgen, 2021
 
-import telemetri_verileri as tv
 import serial
 from time import sleep
+
+import telemetri_verileri as tv
 
 def calistir():
 	with serial.Serial('/dev/ttyS0', 9600) as ser:
 		while True:
 			gps_verisi = ser.readline().strip().decode()
 			# GNRMC verisinden zaman ve gps verisi alinir
-			# Fakat yukseklik verisini bulamadim
 			if gps_verisi[:6] == "$GNRMC":
 				gps = gps_verisi.split(",")
 				if gps[1] != "":

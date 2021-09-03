@@ -5,6 +5,7 @@ from time import sleep
 import board
 import busio
 import adafruit_pca9685
+
 import telemetri_verileri as tv
 
 def calistir():

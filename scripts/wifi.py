@@ -1,8 +1,10 @@
-#!/usr/bin/env python3 Ulgen, 2021
+#!/usr/bin/env python3
+# Ulgen, 2021
 
-import telemetri_verileri as tv
 import socket
 from time import sleep
+
+import telemetri_verileri as tv
 import log
 
 def calistir():

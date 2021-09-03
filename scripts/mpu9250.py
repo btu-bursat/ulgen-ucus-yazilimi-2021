@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # Ulgen, 2021
 
-import telemetri_verileri as tv
 from FaBo9Axis_MPU9250 import MPU9250
 from time import sleep
 import numpy as np
 import math
+
+import telemetri_verileri as tv
 
 def calistir():
 	mpu9250 = MPU9250()

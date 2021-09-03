@@ -3,6 +3,7 @@
 
 from threading import Thread
 from time import sleep
+
 import telemetri_verileri as tv
 import mpu9250
 import bmp280
