@@ -7,9 +7,3 @@ import telemetri_verileri as tv
 
 def calistir():
 	return
-	while True:
-		if tv.pil_yuzde > 60:
-			pass
-		else:
-			pass
-		sleep(1)
