@@ -1,6 +1,6 @@
 # BTÜ Ülgen Takımı 2021 Uçuş Yazılımı
 
-2021 Teknofest Türksat Model Uydu Yarışması için, Bursa Teknik Üniversitesi Ülgen model uydu takımının yazmış olduğu uçuş yazılımıdır. Yazılım `Raspberry Pi Zero W` üzerinde çalışması için tasarlanmıştır. Yazılım takımın QR aşamasında elenmesi sebebi ile tamamlanmamıştır.
+2021 Teknofest Türksat Model Uydu Yarışması için, Bursa Teknik Üniversitesi Ülgen model uydu takımının yazmış olduğu uçuş yazılımıdır. Yazılım `Raspberry Pi Zero W` üzerinde çalışması için tasarlanmıştır. Yazılım, takımın QR aşamasında elenmesi sebebi ile tamamlanmamıştır.
 
 ## UYARILAR
 
