@@ -16,6 +16,8 @@ Yazılımın eksik kaldığı alanlar:
 
 ## Kurulum
 
+`I2C`, `UART`, `SPI` ve `Serial` protokollerinin `Raspbery Pi` tarafında aktif olduğuna emin olun! Aktifleştirmek için `sudo raspi-config` komutunu kullanabilirsiniz.
+
 ```bash
 sudo apt install git
 git clone https://github.com/Bursat/ulgen-ucus-yazilimi-2021.git
