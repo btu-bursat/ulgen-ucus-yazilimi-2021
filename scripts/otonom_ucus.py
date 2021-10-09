@@ -7,7 +7,7 @@ import telemetri_verileri as tv
 
 def calistir():
 	return
-	# Ivme sensorundeki sifir degeri
+	# Ivme sensorundeki olculen sifir degeri
 	ivme_sifir_degeri = 1.545
 	while True:
 		if tv.uydu_statusu == "1":

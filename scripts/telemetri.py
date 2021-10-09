@@ -41,8 +41,8 @@ def calistir():
 		tv.paket_numarasi = int(tv.paket_numarasi) + 1
 
 		# Yer istasyonuna saniyede 1 (1 hz) kez telemetri aktarimi olmasini
-		# garanti altina al. Eger veri aktarimi 1 saniyeden uzun surdu ise
-		# daha fazla bekleme.
+		# garanti altina alir. Eger veri aktarimi 1 saniyeden uzun surdu ise
+		# daha fazla beklemez.
 		sure = time.time() - baslangic
 		if sure < 1:
 			time.sleep(1 - sure)
